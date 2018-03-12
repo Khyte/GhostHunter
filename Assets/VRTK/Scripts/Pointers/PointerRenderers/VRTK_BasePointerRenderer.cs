@@ -66,9 +66,9 @@ namespace VRTK
         [Header("General Appearance Settings")]
 
         [Tooltip("The colour to change the pointer materials when the pointer collides with a valid object. Set to `Color.clear` to bypass changing material colour on valid collision.")]
-        public Color validCollisionColor = Color.green;
+        public Color validCollisionColor = Color.clear;
         [Tooltip("The colour to change the pointer materials when the pointer is not colliding with anything or with an invalid object. Set to `Color.clear` to bypass changing material colour on invalid collision.")]
-        public Color invalidCollisionColor = Color.red;
+        public Color invalidCollisionColor = Color.clear;
 
         [Tooltip("Determines when the main tracer of the pointer renderer will be visible.")]
         public VisibilityStates tracerVisibility = VisibilityStates.OnWhenActive;
