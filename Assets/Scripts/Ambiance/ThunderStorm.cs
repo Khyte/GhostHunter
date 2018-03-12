@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ThunderStorm : MonoBehaviour {
 
+	// Directional light
 	public Light thunderLight;
 
+	// Sons
 	public AudioClip[] thunderSound;
 	public AudioSource thunder;
 
@@ -18,13 +20,6 @@ public class ThunderStorm : MonoBehaviour {
 	void Update () {
 		if (createThunder)
 		{
-			// Audio
-			if (timer == 0)
-			{
-				thunder.clip = thunderSound[Random.Range(0, thunderSound.Length)];
-				thunder.Play();
-			}
-
 			timer += Time.deltaTime;
 
 			if (timer >= Random.Range(0.5f, 0.6f))
@@ -56,6 +51,13 @@ public class ThunderStorm : MonoBehaviour {
 			{
 				thunderLight.intensity = 0f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(0.3f, 0.3f, 0.3f));
+			}
+
+			// Audio
+			if (timer >= 2f && timer <= 2.1f && !thunder.isPlaying)
+			{
+				thunder.clip = thunderSound[Random.Range(0, thunderSound.Length)];
+				thunder.Play();
 			}
 
 			if (timer >= Random.Range(fearValue, fearValue + 5f))
