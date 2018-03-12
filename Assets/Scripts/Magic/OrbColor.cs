@@ -13,14 +13,14 @@ public class OrbColor : MonoBehaviour {
 	void Update () {
 		//Orb
 		float emission = 0.1f + Mathf.PingPong(Time.time * 0.8f, 3f - 0.1f);
-		Color baseColor = orbColor; //Replace this with whatever you want for your base color at emission level '1'
+		Color baseColor = orbColor;
 		Color finalColor = baseColor * Mathf.LinearToGammaSpace(emission);
 		orbMat.SetColor("_EmissionColor", finalColor);
 
 		//Light
-		float lightEmission = 0.1f + Mathf.PingPong(Time.time * 0.4f, 1.5f - 0.1f);
+		float lightEmission = 0.1f + Mathf.PingPong(Time.time * 0.8f, 3f - 0.1f);
 		orbLight.color = orbColor;
-		orbLight.intensity = lightEmission;
+		orbLight.intensity = lightEmission * 0.5f;
 	}
 
 }
