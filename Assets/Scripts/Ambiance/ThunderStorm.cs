@@ -4,76 +4,62 @@ using UnityEngine;
 
 public class ThunderStorm : MonoBehaviour {
 
-	public GameObject[] thunderLights;
-	public Skybox nightRain;
+	public Light thunderLight;
 
 	public AudioClip[] thunderSound;
 	public AudioSource thunder;
 
 	public bool createThunder;
+	public float fearValue;
 
 	private float timer = 0;
 	
 
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Backspace))
-		{
-			createThunder = true;
-		}
 		if (createThunder)
 		{
-			timer += Time.deltaTime;
 			// Audio
-			thunder.clip = thunderSound[Random.Range(0, thunderSound.Length)];
-			thunder.Play();
+			if (timer == 0)
+			{
+				thunder.clip = thunderSound[Random.Range(0, thunderSound.Length)];
+				thunder.Play();
+			}
+
+			timer += Time.deltaTime;
+
 			if (timer >= Random.Range(0.5f, 0.6f))
 			{
-				foreach(GameObject lights in thunderLights)
-				{
-					lights.SetActive(true);
-				}
+				thunderLight.intensity = 1f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(1, 1, 1));
 			}
 			if (timer >= Random.Range(0.7f, 0.8f))
 			{
-				foreach (GameObject lights in thunderLights)
-				{
-					lights.SetActive(false);
-				}
+				thunderLight.intensity = 0f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(0.3f, 0.3f, 0.3f));
 			}
 			if (timer >= Random.Range(0.8f, 0.9f))
 			{
-				foreach (GameObject lights in thunderLights)
-				{
-					lights.SetActive(true);
-				}
+				thunderLight.intensity = 1f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(1, 1, 1));
 			}
 			if (timer >= Random.Range(1.0f, 1.1f))
 			{
-				foreach (GameObject lights in thunderLights)
-				{
-					lights.SetActive(false);
-				}
+				thunderLight.intensity = 0f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(0.3f, 0.3f, 0.3f));
 			}
 			if (timer >= Random.Range(1.2f, 1.3f))
 			{
-				foreach (GameObject lights in thunderLights)
-				{
-					lights.SetActive(true);
-				}
+				thunderLight.intensity = 1f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(1, 1, 1));
 			}
 			if (timer >= Random.Range(1.4f, 1.5f))
 			{
-				foreach (GameObject lights in thunderLights)
-				{
-					lights.SetActive(false);
-				}
+				thunderLight.intensity = 0f;
 				RenderSettings.skybox.SetColor("_Tint", new Color(0.3f, 0.3f, 0.3f));
-				createThunder = false;
+			}
+
+			if (timer >= Random.Range(fearValue, fearValue + 5f))
+			{
 				timer = 0;
 			}
 		}	
