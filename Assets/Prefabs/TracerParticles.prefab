@@ -113,7 +113,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1113476207
+  randomSeed: 1965690249
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -265,7 +265,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.8
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -887,7 +887,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -973,7 +973,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 8.726646
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -2729,7 +2729,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -3435,8 +3435,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: b4353df3a2ba6af429d00cce2deb1275, type: 2}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 32b38782ec888bf47a2ce48cb4cc7710, type: 2}
+  - {fileID: 2100000, guid: 1388310b085d42d4fbb1da0c750b09e2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

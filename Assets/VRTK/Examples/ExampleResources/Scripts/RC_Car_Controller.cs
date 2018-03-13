@@ -22,6 +22,7 @@
         private void DoTouchpadAxisChanged(object sender, ControllerInteractionEventArgs e)
         {
             rcCarScript.SetTouchAxis(e.touchpadAxis);
+			Debug.Log(e.touchpadAxis);
         }
 
         private void DoTriggerAxisChanged(object sender, ControllerInteractionEventArgs e)

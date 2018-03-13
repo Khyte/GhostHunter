@@ -55,7 +55,7 @@ namespace VRTK
 
         protected VRTK_CurveGenerator actualTracer;
         protected GameObject actualContainer;
-        protected GameObject actualCursor;
+        public GameObject actualCursor;
         protected GameObject actualValidLocationObject = null;
         protected GameObject actualInvalidLocationObject = null;
         protected Vector3 fixedForwardBeamForward;
