@@ -47,8 +47,10 @@ public class Magic : MonoBehaviour {
 
 	private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e)
 	{
+		Debug.Log("PRESSED");
 		if (!magicIsCasted)
 		{
+			Debug.Log("MAGIC");
 			activeProjector = !activeProjector;
 			if (activeProjector)
 			{
