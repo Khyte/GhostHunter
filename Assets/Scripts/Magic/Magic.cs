@@ -27,9 +27,9 @@ public class Magic : MonoBehaviour {
 	private Color lastColor;
 
 	private int lastMagicValue = 1;
-	private bool activeProjector = false;
+	public bool activeProjector = false;
 	private bool castMagic = false;
-	private bool magicIsCasted = false;
+	public bool magicIsCasted = false;
 
 	// Timer
 	private float timer;

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LightRune : MonoBehaviour {
 
-	/// Room 1 : 0 to 2
 	public LightFlicker[] lights;
 
 	public Hunter hunter;
@@ -26,7 +25,7 @@ public class LightRune : MonoBehaviour {
 
 	private void RoomNumber(int roomNbr)
 	{
-		for (int i = roomNbr - 1 ; i <= roomNbr + 1 ; i++)
+		for (int i = (roomNbr * 3) - 3 ; i <= (roomNbr * 3) - 1 ; i++)
 		{
 			lightsRoom.Add(lights[i]);
 		}
@@ -42,7 +41,7 @@ public class LightRune : MonoBehaviour {
 
 			for (int i = 0 ; i < lightsRoom.Count ; i++)
 			{
-				if (lightsRoom[i]._baseIntensity <= 2f)
+				if (lightsRoom[i]._baseIntensity <= 1.5f)
 				{
 					lightsRoom[i]._baseIntensity += Time.deltaTime * 0.4f;
 				}

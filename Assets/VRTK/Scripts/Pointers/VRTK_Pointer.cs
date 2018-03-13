@@ -60,6 +60,10 @@ namespace VRTK
         [Tooltip("A custom transform to use as the origin of the pointer. If no pointer origin transform is provided then the transform the script is attached to is used.")]
         public Transform customOrigin;
 
+		//
+		public Magic magic;
+		//
+
         /// <summary>
         /// Emitted when the pointer activation button is pressed.
         /// </summary>
@@ -107,7 +111,7 @@ namespace VRTK
         {
             if (ActivationButtonPressed != null)
             {
-                ActivationButtonPressed(this, e);
+				ActivationButtonPressed(this, e);         
             }
         }
 
@@ -513,12 +517,16 @@ namespace VRTK
 
         protected virtual void DoActivationButtonPressed(object sender, ControllerInteractionEventArgs e)
         {
-            OnActivationButtonPressed(controller.SetControllerEvent(ref activationButtonPressed, true));
-            if (EnabledPointerRenderer())
-            {
-                controllerReference = e.controllerReference;
-                Toggle(true);
-            }
+			// Ajout
+			if (!magic.magicIsCasted)
+			{
+				OnActivationButtonPressed(controller.SetControllerEvent(ref activationButtonPressed, true));
+				if (EnabledPointerRenderer())
+				{
+					controllerReference = e.controllerReference;
+					Toggle(true);
+				}
+			}        
         }
 
         protected virtual void DoActivationButtonReleased(object sender, ControllerInteractionEventArgs e)
