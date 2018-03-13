@@ -91,7 +91,7 @@ namespace VRTK
         protected float activateDelayTimer;
         protected float selectDelayTimer;
         protected float hoverDurationTimer;
-        protected int currentActivationState;
+        public int currentActivationState;
         protected bool willDeactivate;
         protected bool wasActivated;
         protected VRTK_ControllerReference controllerReference;

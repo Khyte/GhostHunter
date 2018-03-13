@@ -49,14 +49,12 @@ public class SwipeDetector : MonoBehaviour
 		if (!trackingSwipe)
 		{
 			startChecking = true;
-			Debug.Log("START");
 		}
 	}
 
 	private void DoTouchpadTouchEnd(object sender, ControllerInteractionEventArgs e)
 	{
 		upChecking = true;
-		Debug.Log("STOP");
 	}
 
 	void Update()
@@ -95,7 +93,6 @@ public class SwipeDetector : MonoBehaviour
 			Vector2 swipeVector = endPosition - mStartPosition;
 
 			float velocity = swipeVector.magnitude / deltaTime;
-			Debug.Log(velocity);
 			if (velocity > mMinVelocity &&
 				swipeVector.magnitude > mMinSwipeDist)
 			{

@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af5fc644c19af478023dd44643692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orb: {fileID: 660288420}
 --- !u!108 &492835467
 Light:
   m_ObjectHideFlags: 0
@@ -487,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af5fc644c19af478023dd44643692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orb: {fileID: 660288420}
 --- !u!108 &506768273
 Light:
   m_ObjectHideFlags: 0
@@ -715,6 +717,12 @@ MonoBehaviour:
   - {fileID: 1788204436}
   - {fileID: 506768270}
   - {fileID: 1968935282}
+  runes:
+  - {fileID: 1528178112416800, guid: 7eecda70005fb4948891cd79eba83919, type: 2}
+  - {fileID: 1779798766398232, guid: d133f76997b364249b085d972d5dfe48, type: 2}
+  - {fileID: 1162771739593996, guid: e9dd5038a41b1bf458ab47416292eec8, type: 2}
+  - {fileID: 1050733179393862, guid: fb3d9eecba010d94cbff8ad018f651e1, type: 2}
+  coolDown: 5
 --- !u!1001 &693912135
 Prefab:
   m_ObjectHideFlags: 0
@@ -1936,6 +1944,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   interactUse: {fileID: 0}
   customOrigin: {fileID: 0}
+  currentActivationState: 0
 --- !u!1 &1788082736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af5fc644c19af478023dd44643692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orb: {fileID: 660288420}
 --- !u!108 &1788204439
 Light:
   m_ObjectHideFlags: 0
@@ -2350,6 +2360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af5fc644c19af478023dd44643692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orb: {fileID: 660288420}
 --- !u!108 &1968935285
 Light:
   m_ObjectHideFlags: 0
