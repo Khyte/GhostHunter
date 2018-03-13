@@ -5,15 +5,22 @@ using VRTK;
 
 public class Magic : MonoBehaviour {
 
+	// Controllers
+	public GameObject steamVR;
 	public GameObject leftController;
 	public VRTK_BezierPointerRenderer pointer;
 
+	// Manoir (light rune)
+	public LightRune lightRune;
+
+	// Runes
 	public GameObject projector;
 	public GameObject[] runeProjectors;
 	public GameObject[] runes;
 
 	public float coolDown;
 
+	// Couleur orbe
 	private OrbColor orb;
 	private SwipeDetector swipeDetector;
 	private Color[] colors = new Color[4];
@@ -24,6 +31,7 @@ public class Magic : MonoBehaviour {
 	private bool castMagic = false;
 	private bool magicIsCasted = false;
 
+	// Timer
 	private float timer;
 	private float colorTimer;
 
@@ -47,10 +55,8 @@ public class Magic : MonoBehaviour {
 
 	private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e)
 	{
-		Debug.Log("PRESSED");
 		if (!magicIsCasted)
 		{
-			Debug.Log("MAGIC");
 			activeProjector = !activeProjector;
 			if (activeProjector)
 			{
@@ -79,6 +85,18 @@ public class Magic : MonoBehaviour {
 			GameObject rune = Instantiate(runes[lastMagicValue - 1], new Vector3(runePos.x, 0.04f, runePos.z), runes[lastMagicValue - 1].transform.rotation);
 			Destroy(rune, coolDown);
 			magicIsCasted = true;
+
+			// Teleport rune
+			if (lastMagicValue == 1)
+			{
+				steamVR.transform.localPosition = new Vector3(runePos.x, 0, runePos.z);
+			}
+
+			// Light rune
+			if (lastMagicValue == 4)
+			{
+				lightRune.ActivateLights();
+			}
 		}
 	}
 
