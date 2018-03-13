@@ -1,26 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MovingGhost : MonoBehaviour {
 
-	private Vector3 startPosition;
-	private float timer;
+	public Waypoints waypoint;
+
+	private NavMeshAgent agent;
+	private int pointNbr = 0;
 
 
 	void Start () {
-		startPosition = transform.localPosition;
+		agent = GetComponent<NavMeshAgent>();
 	}
 	
 	void Update () {
-		timer += Time.deltaTime;
-
-		transform.localPosition += new Vector3(0, Mathf.Sin(Time.time) * 0.0012f, Time.deltaTime * 0.5f);
-		if (timer >= 25f)
+		if (!waypoint.goToDest)
 		{
-			transform.localPosition = startPosition;
-			timer = 0;
+			agent.speed = 0;
+			pointNbr = 0;
 		}
+		if (waypoint.goToDest)
+		{
+			agent.speed = 3;
+			Vector3 dest = waypoint.waypoints[pointNbr].transform.localPosition;
+			agent.destination = new Vector3(dest.x, 0, dest.z);
+		}
+		if (waypoint.goToDest && agent.remainingDistance <= 0.2f)
+		{
+			GoToNextPoint();
+		}
+	}
+
+	void GoToNextPoint()
+	{
+		if (pointNbr >= waypoint.waypoints.Count - 1 && waypoint.goToDest)
+		{
+			agent.speed = 0;
+			pointNbr = 0;
+			waypoint.goToDest = false;
+			return;
+		}
+		else
+			pointNbr++;
 	}
 
 }
