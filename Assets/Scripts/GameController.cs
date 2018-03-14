@@ -7,7 +7,12 @@ public class GameController : MonoBehaviour {
 	public bool startGame;
 
 	private float timer = 0;
-	
+
+
+	private void Start()
+	{
+		
+	}
 
 	void Update () {
 		timer += Time.deltaTime;
