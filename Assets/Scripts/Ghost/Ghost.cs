@@ -23,6 +23,7 @@ public class Ghost : MonoBehaviour {
 
 	private int roomNbr = 0;
 	private bool runeDmg = false;
+	private bool runeMarked = false;
 
 	private bool lastVisible;
 	private float visibleTimer = 5f;
@@ -76,14 +77,14 @@ public class Ghost : MonoBehaviour {
 					ghostAnim.Play("Damage");
 					invisible = false;
 				}
-				else if (!runeDmg && lightRune.lights[(roomNbr * 3) - 1]._baseIntensity <= 0.6f)
+				else if (!runeDmg && lightRune.lights[(roomNbr * 3) - 1]._baseIntensity <= 0.6f && !runeMarked)
 				{
 					ghostAnim.Play("Idle");
 					invisible = true;
 					return;
 				}
 			}
-			else
+			else if (!runeMarked && !runeDmg)
 			{
 				ghostAnim.Play("Idle");
 				invisible = true;
@@ -103,6 +104,7 @@ public class Ghost : MonoBehaviour {
 		if (other.tag == "MarkRune")
 		{
 			invisible = false;
+			runeMarked = true;
 		}
 		if (other.tag == "Room")
 		{
@@ -131,6 +133,11 @@ public class Ghost : MonoBehaviour {
 			ghostAnim.Play("Idle");
 			runeDmg = false;
 			invisible = true;
+		}
+		if (other.tag == "MarkRune")
+		{
+			invisible = true;
+			runeMarked = false;
 		}
 	}
 

@@ -53,7 +53,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4002935836525152}
   - component: {fileID: 111419467963635460}
-  - component: {fileID: 114251904191941254}
   m_Layer: 0
   m_Name: MagicGlobe
   m_TagString: Untagged
@@ -169,9 +168,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1487262467688402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7660445, z: 0.6427876, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4553485700249300}
   - {fileID: 4786199697846214}
@@ -182,7 +181,7 @@ Transform:
   - {fileID: 4807620969341256}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -80, y: 180, z: 0}
 --- !u!4 &4105629781373404
 Transform:
   m_ObjectHideFlags: 1
@@ -438,7 +437,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 91061c10c770a8b4385a22f0543b629b, type: 2}
+  - {fileID: 2100000, guid: 551422bbc06839542883fe7edabe3479, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -586,7 +585,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 3
+  m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -626,17 +625,3 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114251904191941254
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487262467688402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7805f6c105d2c9342bca009634c39cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbColor: {r: 1, g: 1, b: 1, a: 1}
-  orbMat: {fileID: 2100000, guid: 91061c10c770a8b4385a22f0543b629b, type: 2}
-  orbLight: {fileID: 108851154390687342}
