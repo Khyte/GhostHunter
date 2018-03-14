@@ -161,6 +161,8 @@ public class Magic : MonoBehaviour {
 			if (timer == 0)
 			{
 				lastColor = orb.orbColor;
+				// Pas bien, à modifier pour amélioration
+				runes[lastMagicValue - 1].GetComponentInChildren<Light>().intensity = 1f;
 			}
 
 			timer += Time.deltaTime;
@@ -177,6 +179,8 @@ public class Magic : MonoBehaviour {
 			if (timer >= coolDown - 2f)
 			{
 				orb.orbColor = Color.Lerp(Color.white, lastColor, colorTimer);
+				// Pas bien, à modifier pour amélioration
+				runes[lastMagicValue - 1].GetComponentInChildren<Light>().intensity -= 0.05f;
 			}
 			else if (timer <= 2f)
 			{

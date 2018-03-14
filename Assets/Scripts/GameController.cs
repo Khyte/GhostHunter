@@ -9,9 +9,9 @@ public class GameController : MonoBehaviour {
 	private float timer = 0;
 
 
-	private void Start()
+	private void Awake()
 	{
-		
+		Screen.fullScreen = true;
 	}
 
 	void Update () {
