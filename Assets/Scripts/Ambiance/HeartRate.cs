@@ -11,6 +11,9 @@ public class HeartRate : MonoBehaviour {
 	// MIO capteur cardiaque
 	public GameObject MIO;
 
+	// Matériaux
+	public Material[] mat;
+
 	private GameController gameC;
 	private ThunderStorm thunderStorm;
 	private HeartRateServer heartRate;
@@ -25,6 +28,12 @@ public class HeartRate : MonoBehaviour {
 		if (MIO.activeInHierarchy)
 		{
 			heartRate = MIO.GetComponent<HeartRateServer>();
+		}
+
+		// Materiaux
+		for (int i = 0 ; i < mat.Length ; i++)
+		{
+			mat[i].SetColor("_SnowAccumulation", new Vector4(0, 4f, 0, 0));
 		}
 	}
 
@@ -50,6 +59,12 @@ public class HeartRate : MonoBehaviour {
 			{
 				thunderStorm.createThunder = false;
 			}
+		}
+
+		// Materiaux
+		for (int i = 0 ; i < mat.Length ; i++)
+		{
+			mat[i].SetColor("_SnowAccumulation", new Vector4(-(120 - value*2) * 0.007f, 4f, 0, 0));
 		}
 	}
 

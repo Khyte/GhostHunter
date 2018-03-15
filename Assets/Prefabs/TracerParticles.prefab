@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198817768340342806}
   - component: {fileID: 114846812965280192}
   - component: {fileID: 199689412264077574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TracerParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
