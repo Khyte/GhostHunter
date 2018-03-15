@@ -9,6 +9,7 @@ public class Magic : MonoBehaviour {
 	public GameObject steamVR;
 	public GameObject leftController;
 	public VRTK_BezierPointerRenderer pointer;
+	public GameObject hunter;
 
 	// Manoir (light rune)
 	public LightRune lightRune;
@@ -17,6 +18,8 @@ public class Magic : MonoBehaviour {
 	public GameObject projector;
 	public GameObject[] runeProjectors;
 	public GameObject[] runes;
+
+	private GameObject actualRune;
 
 	public float coolDown;
 
@@ -82,14 +85,20 @@ public class Magic : MonoBehaviour {
 			timer = 0;
 			colorTimer = 0;
 			Vector3 runePos = runeProjectors[lastMagicValue - 1].transform.localPosition;
-			GameObject rune = Instantiate(runes[lastMagicValue - 1], new Vector3(runePos.x, 0.04f, runePos.z), runes[lastMagicValue - 1].transform.rotation);
-			Destroy(rune, coolDown);
+			actualRune = Instantiate(runes[lastMagicValue - 1], new Vector3(runePos.x, 0.04f, runePos.z), runes[lastMagicValue - 1].transform.rotation);
+			Destroy(actualRune, coolDown);
 			magicIsCasted = true;
 
 			// Teleport rune
 			if (lastMagicValue == 1)
 			{
-				steamVR.transform.localPosition = new Vector3(runePos.x, 0, runePos.z);
+				// Distance entre le joueur et la rune
+				float distance = Vector3.Distance(new Vector3(runePos.x, 0, runePos.z), new Vector3(hunter.transform.position.x, 0, hunter.transform.position.z));
+				// Direction du joueur à la rune
+				Vector3 normalize = (new Vector3(runePos.x, 0, runePos.z) - new Vector3(hunter.transform.position.x, 0, hunter.transform.position.z)).normalized;
+				// Téléportation
+				Vector3 oldPos = steamVR.transform.localPosition;
+				steamVR.transform.localPosition = oldPos + (normalize * distance);
 			}
 
 			// Light rune
@@ -162,7 +171,7 @@ public class Magic : MonoBehaviour {
 			{
 				lastColor = orb.orbColor;
 				// Pas bien, à modifier pour amélioration
-				runes[lastMagicValue - 1].GetComponentInChildren<Light>().intensity = 1f;
+				actualRune.transform.GetChild(0).GetComponent<Light>().intensity = 1f;
 			}
 
 			timer += Time.deltaTime;
@@ -180,7 +189,10 @@ public class Magic : MonoBehaviour {
 			{
 				orb.orbColor = Color.Lerp(Color.white, lastColor, colorTimer);
 				// Pas bien, à modifier pour amélioration
-				runes[lastMagicValue - 1].GetComponentInChildren<Light>().intensity -= 0.05f;
+				if (actualRune != null)
+				{
+					actualRune.transform.GetChild(0).GetComponent<Light>().intensity -= 0.01f;
+				}
 			}
 			else if (timer <= 2f)
 			{

@@ -6,9 +6,12 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System;
+using UnityEngine.UI;
 
 public class HeartRateServer : MonoBehaviour
 {
+	public Text hrText;
+
     static private HeartRateServer s_singleton;
 
     private TcpListener m_ServerSocket;
@@ -79,8 +82,8 @@ public class HeartRateServer : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(m_heartRate);
-        UpdateHeartRate();
+		hrText.text = m_heartRate.ToString();
+		UpdateHeartRate();
         // TODO check validity
         //UpdateBaseHeartRate();
     }
