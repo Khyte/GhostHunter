@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Cobblestone Mud [Standard shader] Fixed Snow Value
   m_Shader: {fileID: 4800000, guid: e1f34d503f3c749f4b9870e5f4079e6a, type: 3}
-  m_ShaderKeywords: EFFECT_BUMP GEOM_TYPE_BRANCH_DETAIL GEOM_TYPE_FROND GEOM_TYPE_LEAF
-    GEOM_TYPE_MESH _DETAIL_MULX2 _NORMALMAP _OCCLUSIONMAP _PARALLAXMAP _SNOW
+  m_ShaderKeywords: EFFECT_BUMP GEOM_TYPE_FROND GEOM_TYPE_LEAF GEOM_TYPE_MESH _NORMALMAP
+    _OCCLUSIONMAP _SNOW
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
-        m_Texture: {fileID: 2800000, guid: 709ee796a7bd049d99744f5d55859909, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 6, y: 6}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
@@ -36,7 +36,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 2800000, guid: b3472a995dd3046e0924075de4a2eb18, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: c4479765e65de41a78e893da64a60fe1, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SkidBumpMap:
@@ -115,14 +115,14 @@ Material:
     - _SnowMaskTiling: 0.2
     - _SnowNormalStrength: 1
     - _SnowOpacity: 1
-    - _SnowSlopeDamp: 1
+    - _SnowSlopeDamp: 0.45
     - _SnowTiling: 1
     - _SrcBlend: 1
     - _SyncWaterOfMaterials: 0
     - _TranslucencyStrength: 0.493
     - _UVSec: 0
     - _UseCombinedMap: 0
-    - _UseMixMapping: 1
+    - _UseMixMapping: 0
     - _UsePOM: 1
     - _WaterCrackMultiplier: 0.75
     - _WaterCrackMultiplier2: 1

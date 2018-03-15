@@ -4,116 +4,141 @@ using UnityEngine;
 
 public class RuneDrawing : MonoBehaviour {
 
-	public Transform rune;
+	public Transform[] rune;
 	public List<GameObject> waypoints = new List<GameObject>();
 
+	public GameObject[] animTuto;
+
+	public int randomRune = 0;
 	public int waypointHit = 1;
 
-	private List<GameObject> listWaypoints = new List<GameObject>();
-	private LineRenderer line;
+	public List<GameObject> listWaypoints = new List<GameObject>();
+	public LineRenderer line;
+
+	public bool drawRune = false;
 
 
 	void Start () {
 		line = GetComponent<LineRenderer>();
 	}
 
-	private void OnEnable()
+	public void CreateRune()
 	{
+		rune[randomRune].gameObject.SetActive(true);
+		animTuto[randomRune].gameObject.SetActive(true);
 		listWaypoints.Clear();
 		waypointHit = 1;
-		foreach (Transform child in rune)
+		foreach (Transform child in rune[randomRune])
 		{
 			listWaypoints.Add(child.gameObject);
 		}
+		drawRune = true;
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0))
+		if (drawRune)
 		{
-			waypoints.Clear();
-		}
-		if (Input.GetMouseButton(0) && waypoints.Count <= 100)
-		{
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hit))
+			if (Input.GetMouseButtonDown(0))
 			{
-				if (hit.collider.tag == "Waypoints")
+				line.positionCount = 0;
+				for (int i = 0 ; i < waypoints.Count ; i++)
 				{
-					if (waypoints.Count == 0)
+					Destroy(waypoints[i]);
+				}
+				waypoints.Clear();
+				animTuto[randomRune].gameObject.SetActive(false);
+			}
+			if (Input.GetMouseButton(0) && waypoints.Count <= 100)
+			{
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(ray, out hit))
+				{
+					if (hit.collider.tag == "Waypoints")
 					{
-						GameObject go = new GameObject();
-						go.transform.parent = transform;
-						go.transform.localPosition = new Vector3(hit.point.x, 30, hit.point.z);
-						waypoints.Add(go);
-						if (hit.collider.name == "Waypoint" + waypointHit)
+						if (waypoints.Count == 0)
 						{
-							waypointHit++;
-							hit.collider.tag = "Untagged";
+							GameObject go = new GameObject();
+							go.transform.parent = transform;
+							go.transform.localPosition = new Vector3(hit.point.x, 40, hit.point.z);
+							waypoints.Add(go);
+							if (hit.collider.name == "Waypoint" + waypointHit)
+							{
+								waypointHit++;
+								hit.collider.tag = "Untagged";
+							}
+						}
+						else
+						{
+							Vector3 offset = waypoints[waypoints.Count - 1].transform.localPosition - new Vector3(hit.point.x, 40, hit.point.z);
+							float sqrLen = offset.sqrMagnitude;
+
+							if (sqrLen >= 0.4f)
+							{
+								GameObject go = new GameObject();
+								go.transform.parent = transform;
+								go.transform.localPosition = new Vector3(hit.point.x, 40, hit.point.z);
+								waypoints.Add(go);
+							}
+							if (hit.collider.name == "Waypoint" + waypointHit)
+							{
+								waypointHit++;
+								hit.collider.tag = "Untagged";
+							}
 						}
 					}
-					else
+					if (waypoints.Count > 0)
 					{
-						Vector3 offset = waypoints[waypoints.Count - 1].transform.localPosition - new Vector3(hit.point.x, 30, hit.point.z);
+						Vector3 offset = waypoints[waypoints.Count - 1].transform.localPosition - new Vector3(hit.point.x, 40, hit.point.z);
 						float sqrLen = offset.sqrMagnitude;
 
 						if (sqrLen >= 0.3f)
 						{
 							GameObject go = new GameObject();
 							go.transform.parent = transform;
-							go.transform.localPosition = new Vector3(hit.point.x, 30, hit.point.z);
+							go.transform.localPosition = new Vector3(hit.point.x, 40, hit.point.z);
 							waypoints.Add(go);
 						}
-						if (hit.collider.name == "Waypoint" + waypointHit)
-						{
-							waypointHit++;
-							hit.collider.tag = "Untagged";
-						}
 					}
 				}
-				if (waypoints.Count > 0)
-				{
-					Vector3 offset = waypoints[waypoints.Count - 1].transform.localPosition - new Vector3(hit.point.x, 30, hit.point.z);
-					float sqrLen = offset.sqrMagnitude;
+			}
 
-					if (sqrLen >= 0.3f)
+			if (Input.GetMouseButtonUp(0) && waypoints.Count > 0)
+			{
+				// Release = end waypoints
+				line.enabled = true;
+				line.positionCount = waypoints.Count;
+				for (int i = 0 ; i < waypoints.Count ; i++)
+				{
+					line.SetPosition(i, waypoints[i].transform.localPosition);
+				}
+
+				// Erreur
+				if (waypointHit < 10)
+				{
+					for (int i = 0 ; i < listWaypoints.Count ; i++)
 					{
-						GameObject go = new GameObject();
-						go.transform.parent = transform;
-						go.transform.localPosition = new Vector3(hit.point.x, 30, hit.point.z);
-						waypoints.Add(go);
+						listWaypoints[i].tag = "Waypoints";
 					}
+					waypointHit = 1;
+					animTuto[randomRune].gameObject.SetActive(true);
+					Debug.Log("ERREUR");
 				}
-			}
-		}
-
-		if (Input.GetMouseButtonUp(0) && waypoints.Count > 0)
-		{
-			// Release = end waypoints
-			line.positionCount = waypoints.Count;
-			for (int i = 0 ; i < waypoints.Count ; i++)
-			{
-				line.SetPosition(i, waypoints[i].transform.localPosition);
-			}
-
-			// Erreur
-			if (waypointHit < 10)
-			{
-				for (int i = 0 ; i < listWaypoints.Count ; i++)
+				// Bon dessin
+				else
 				{
-					listWaypoints[i].tag = "Waypoints";
+					for (int i = 0 ; i < listWaypoints.Count ; i++)
+					{
+						listWaypoints[i].tag = "Waypoints";
+					}
+					waypoints.Clear();
+					line.enabled = false;
+					waypointHit = 1;
+					rune[randomRune].transform.gameObject.SetActive(false);
+					animTuto[randomRune].gameObject.SetActive(false);
+					drawRune = false;
+					Debug.Log("BON DESSIN");
 				}
-				waypointHit = 1;
-			}
-			// Bon dessin
-			else
-			{
-				for (int i = 0 ; i < listWaypoints.Count ; i++)
-				{
-					listWaypoints[i].tag = "Waypoints";
-				}
-				waypointHit = 1;
-				gameObject.SetActive(false);
 			}
 		}
 	}

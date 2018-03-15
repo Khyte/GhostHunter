@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 	private void Awake()
 	{
 		Screen.fullScreen = true;
+		Screen.SetResolution(1920, 1080, true);
 	}
 
 	void Update () {
