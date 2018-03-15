@@ -145,10 +145,11 @@ namespace VRTK
 
         protected virtual void CreateTracer()
         {
-            actualTracer = actualContainer.gameObject.AddComponent<VRTK_CurveGenerator>();
+			actualTracer = actualContainer.gameObject.AddComponent<VRTK_CurveGenerator>();
             actualTracer.transform.SetParent(null);
             actualTracer.Create(tracerDensity, cursorRadius, customTracer, rescaleTracer);
-        }
+			actualTracer.gameObject.layer = 9;
+		}
 
         protected virtual GameObject CreateCursorObject()
         {

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994583967409882}
   - component: {fileID: 108851154390687342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4807620969341256}
   - component: {fileID: 33343101593548122}
   - component: {fileID: 23478277541440610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SphereTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4002935836525152}
   - component: {fileID: 111419467963635460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MagicGlobe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4105629781373404}
   - component: {fileID: 33352064390653332}
   - component: {fileID: 23075197537494428}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SphereBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4758224563166020}
   - component: {fileID: 33990101072194282}
   - component: {fileID: 23534601122074196}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4553485700249300}
   - component: {fileID: 33346572975766934}
   - component: {fileID: 23593777590346250}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4352910078200358}
   - component: {fileID: 33294677400321976}
   - component: {fileID: 23030484636222904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4849383985863304}
   - component: {fileID: 33466493093051450}
   - component: {fileID: 23376601431378470}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4786199697846214}
   - component: {fileID: 33119613099729768}
   - component: {fileID: 23787032627661532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
