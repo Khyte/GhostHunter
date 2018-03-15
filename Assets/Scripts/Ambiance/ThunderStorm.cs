@@ -12,7 +12,7 @@ public class ThunderStorm : MonoBehaviour {
 	public AudioSource thunder;
 
 	public bool createThunder;
-	public float fearValue;
+	public float timerThunder;
 
 	private float timer = 0;
 	
@@ -60,7 +60,7 @@ public class ThunderStorm : MonoBehaviour {
 				thunder.Play();
 			}
 
-			if (timer >= Random.Range(fearValue, fearValue + 5f))
+			if (timer >= Random.Range(timerThunder, timerThunder + 5f))
 			{
 				timer = 0;
 			}

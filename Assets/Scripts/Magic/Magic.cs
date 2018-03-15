@@ -10,6 +10,7 @@ public class Magic : MonoBehaviour {
 	public GameObject leftController;
 	public VRTK_BezierPointerRenderer pointer;
 	public GameObject hunter;
+	public Animation bookAnim;
 
 	// Manoir (light rune)
 	public LightRune lightRune;
@@ -33,6 +34,7 @@ public class Magic : MonoBehaviour {
 	public bool activeProjector = false;
 	private bool castMagic = false;
 	public bool magicIsCasted = false;
+	public bool bookOpen = false;
 
 	// Timer
 	private float timer;
@@ -41,6 +43,7 @@ public class Magic : MonoBehaviour {
 
 	void Start () {
 		// VRTK
+		leftController.GetComponent<VRTK_ControllerEvents>().GripPressed += new ControllerInteractionEventHandler(DoGripPressed);
 		pointer.GetComponent<VRTK_ControllerEvents>().TouchpadPressed += new ControllerInteractionEventHandler(DoTouchpadPressed);
 		pointer.GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
 
@@ -54,6 +57,19 @@ public class Magic : MonoBehaviour {
 		colors[3] = new Color(1f, 1f, 0f);
 
 		orb.orbColor = colors[0];
+	}
+
+	private void DoGripPressed(object sender, ControllerInteractionEventArgs e)
+	{
+		bookOpen = !bookOpen;
+		if (bookOpen)
+			bookAnim.Play();
+		else
+		{
+			bookAnim["Book"].speed = -1;
+			bookAnim["Book"].time = bookAnim["Book"].length;
+			bookAnim.Play("Book");
+		}
 	}
 
 	private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e)
@@ -128,40 +144,37 @@ public class Magic : MonoBehaviour {
 		}
 
 		// Projection rune
-		if (activeProjector)
+		if (lastMagicValue != swipeDetector.magicValue)
 		{
-			if (lastMagicValue != swipeDetector.magicValue)
+			castMagic = false;
+			timer = 0;
+			colorTimer = 0;
+			runeProjectors[lastMagicValue - 1].SetActive(false);
+			lastMagicValue = swipeDetector.magicValue;
+			runeProjectors[lastMagicValue - 1].SetActive(true);
+			lastColor = orb.orbColor;
+			timer += Time.deltaTime;
+		}
+
+		if (timer > 0f)
+		{
+			timer += Time.deltaTime;
+			orb.orbColor = Color.Lerp(lastColor, colors[lastMagicValue - 1], colorTimer);
+			if (colorTimer < 1)
 			{
-				castMagic = false;
+				colorTimer += Time.deltaTime / 2f;
+			}
+			if (timer >= 2f)
+			{
 				timer = 0;
-				colorTimer = 0;
-				runeProjectors[lastMagicValue - 1].SetActive(false);
-				lastMagicValue = swipeDetector.magicValue;
-				runeProjectors[lastMagicValue - 1].SetActive(true);
-				lastColor = orb.orbColor;
-				timer += Time.deltaTime;
+				castMagic = true;
 			}
+		}
 
-			if (timer > 0f)
-			{
-				timer += Time.deltaTime;
-				orb.orbColor = Color.Lerp(lastColor, colors[lastMagicValue - 1], colorTimer);
-				if (colorTimer < 1)
-				{
-					colorTimer += Time.deltaTime / 2f;
-				}
-				if (timer >= 2f)
-				{
-					timer = 0;
-					castMagic = true;
-				}
-			}
-
-			// Projecteur
-			if (pointer.actualCursor)
-			{
-				runeProjectors[lastMagicValue - 1].transform.localPosition = pointer.actualCursor.transform.position;
-			}
+		// Projecteur
+		if (activeProjector && pointer.actualCursor)
+		{
+			runeProjectors[lastMagicValue - 1].transform.localPosition = pointer.actualCursor.transform.position;
 		}
 
 		// Magie lancée
@@ -188,7 +201,6 @@ public class Magic : MonoBehaviour {
 			if (timer >= coolDown - 2f)
 			{
 				orb.orbColor = Color.Lerp(Color.white, lastColor, colorTimer);
-				// Pas bien, à modifier pour amélioration
 				if (actualRune != null)
 				{
 					actualRune.transform.GetChild(0).GetComponent<Light>().intensity -= 0.01f;

@@ -148,7 +148,6 @@ namespace VRTK
 			actualTracer = actualContainer.gameObject.AddComponent<VRTK_CurveGenerator>();
             actualTracer.transform.SetParent(null);
             actualTracer.Create(tracerDensity, cursorRadius, customTracer, rescaleTracer);
-			actualTracer.gameObject.layer = 9;
 		}
 
         protected virtual GameObject CreateCursorObject()
@@ -348,7 +347,8 @@ namespace VRTK
                 {
                     TogglePointerTracer(controllingPointer.IsPointerActive(), controllingPointer.IsPointerActive());
                 }
-            }
+				actualTracer.gameObject.layer = 9;
+			}
         }
 
         protected virtual void TogglePointerCursor(bool pointerState, bool actualState)

@@ -17,6 +17,7 @@ public class Ghost : MonoBehaviour {
 	public GameObject ghostEye;
 	public ParticleSystem fireParticles;
 	public bool invisible = true;
+	public Image visibleIcon;
 	private Color ghostMatColor;
 
 	private Animation ghostAnim;
@@ -43,6 +44,10 @@ public class Ghost : MonoBehaviour {
 	private void Update()
 	{
 		// Visiblité du fantome
+		if (!invisible)
+			visibleIcon.color = Color.Lerp(new Color(1, 1, 1, 0.3f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
+		else
+			visibleIcon.color = new Color(1, 1, 1, 0.3f);
 		if (lastVisible != invisible)
 		{
 			lastVisible = invisible;

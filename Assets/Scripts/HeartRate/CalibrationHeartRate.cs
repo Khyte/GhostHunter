@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CalibrationHeartRate : MonoBehaviour
 {
 
 	public int calibHeartRate;
 	public static CalibrationHeartRate s_singleton;
+	public Text textCalib;
 
 	private int resHeartRate;
 	private float timer;
@@ -54,6 +56,7 @@ public class CalibrationHeartRate : MonoBehaviour
 		stopCalibration = true;
 		calibHeartRate = resHeartRate / (10 - noValue);
 		Debug.Log("Valeur calibrée : " + calibHeartRate);
+		textCalib.text = calibHeartRate.ToString();
 	}
 
 }
