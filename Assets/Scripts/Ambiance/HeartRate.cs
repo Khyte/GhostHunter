@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VRTK;
 
 public class HeartRate : MonoBehaviour {
 
@@ -17,6 +18,10 @@ public class HeartRate : MonoBehaviour {
 	// Matériaux
 	public Material[] mat;
 
+	// Vibrations
+	public GameObject rightController;
+	public GameObject leftController;
+
 	private GameController gameC;
 	private ThunderStorm thunderStorm;
 	private HeartRateServer heartRate;
@@ -24,6 +29,8 @@ public class HeartRate : MonoBehaviour {
 
 	private float value;
 	private float baseValue;
+
+	private bool rumbleT = false;
 
 
 	private void Awake()
@@ -74,6 +81,12 @@ public class HeartRate : MonoBehaviour {
 				thunderStorm.createThunder = false;
 				thunderStorm.thunderLight.intensity = 0;
 			}
+
+			if ((value - baseValue) * delta >= 10 && !rumbleT)
+			{
+				rumbleT = true;
+				StartCoroutine(Rumble());
+			}
 		}
 
 		// Materiaux
@@ -90,6 +103,28 @@ public class HeartRate : MonoBehaviour {
 			{
 				mat[i].SetColor("_SnowAccumulation", new Vector4(0, 4f, 0, 0));
 			}
+		}
+	}
+
+	IEnumerator Rumble()
+	{
+		VRTK_ControllerReference controllerReference = VRTK_ControllerReference.GetControllerReference(rightController);
+		VRTK_ControllerReference controllerReference2 = VRTK_ControllerReference.GetControllerReference(leftController);
+		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.8f, 0.3f, 0.01f);
+		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference2, 0.8f, 0.3f, 0.01f);
+		yield return new WaitForSeconds(0.7f);
+		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.8f, 0.3f, 0.01f);
+		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference2, 0.8f, 0.3f, 0.01f);
+		if ((value - baseValue) * delta >= 1)
+		{
+			float timeRumb = 2000 / ((value - baseValue) * delta);
+			yield return new WaitForSeconds(timeRumb);
+			rumbleT = false;
+		}
+		else
+		{
+			yield return new WaitForSeconds(200);
+			rumbleT = false;
 		}
 	}
 
