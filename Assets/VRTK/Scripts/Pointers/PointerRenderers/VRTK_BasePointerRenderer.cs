@@ -517,13 +517,13 @@ namespace VRTK
             objectInteractor = new GameObject(VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BasePointerRenderer_ObjectInteractor_Container"));
             objectInteractor.transform.SetParent(controllingPointer.controller.transform);
             objectInteractor.transform.localPosition = Vector3.zero;
-            objectInteractor.layer = LayerMask.NameToLayer("Ignore Raycast");
+            objectInteractor.layer = LayerMask.NameToLayer("Hunter");
             VRTK_PlayerObject.SetPlayerObject(objectInteractor, VRTK_PlayerObject.ObjectTypes.Pointer);
 
             GameObject objectInteractorCollider = new GameObject(VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BasePointerRenderer_ObjectInteractor_Collider"));
             objectInteractorCollider.transform.SetParent(objectInteractor.transform);
             objectInteractorCollider.transform.localPosition = Vector3.zero;
-            objectInteractorCollider.layer = LayerMask.NameToLayer("Ignore Raycast");
+            objectInteractorCollider.layer = LayerMask.NameToLayer("Hunter");
             SphereCollider tmpCollider = objectInteractorCollider.AddComponent<SphereCollider>();
             tmpCollider.isTrigger = true;
             VRTK_PlayerObject.SetPlayerObject(objectInteractorCollider, VRTK_PlayerObject.ObjectTypes.Pointer);
@@ -533,7 +533,7 @@ namespace VRTK
                 objectInteractorAttachPoint = new GameObject(VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BasePointerRenderer_ObjectInteractor_AttachPoint"));
                 objectInteractorAttachPoint.transform.SetParent(objectInteractor.transform);
                 objectInteractorAttachPoint.transform.localPosition = Vector3.zero;
-                objectInteractorAttachPoint.layer = LayerMask.NameToLayer("Ignore Raycast");
+                objectInteractorAttachPoint.layer = LayerMask.NameToLayer("Hunter");
                 Rigidbody objectInteratorRigidBody = objectInteractorAttachPoint.AddComponent<Rigidbody>();
                 objectInteratorRigidBody.isKinematic = true;
                 objectInteratorRigidBody.freezeRotation = true;

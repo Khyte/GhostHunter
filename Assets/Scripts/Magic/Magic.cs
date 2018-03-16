@@ -19,8 +19,7 @@ public class Magic : MonoBehaviour {
 	public GameObject projector;
 	public GameObject[] runeProjectors;
 	public GameObject[] runes;
-
-	private GameObject actualRune;
+	public GameObject actualRune;
 
 	public float coolDown;
 
@@ -33,12 +32,15 @@ public class Magic : MonoBehaviour {
 	private int lastMagicValue = 1;
 	public bool activeProjector = false;
 	private bool castMagic = false;
+	private bool changingSpell = false;
 	public bool magicIsCasted = false;
 	public bool bookOpen = false;
 
 	// Timer
 	private float timer;
 	private float colorTimer;
+
+	private Vector3 currentAngle;
 
 
 	void Start () {
@@ -63,11 +65,17 @@ public class Magic : MonoBehaviour {
 	{
 		bookOpen = !bookOpen;
 		if (bookOpen)
-			bookAnim.Play();
+		{
+			bookAnim["Book"].speed = 1;
+			float actualTimeAnim = bookAnim["Book"].time;
+			bookAnim["Book"].time = actualTimeAnim;
+			bookAnim.Play("Book");
+		}
 		else
 		{
 			bookAnim["Book"].speed = -1;
-			bookAnim["Book"].time = bookAnim["Book"].length;
+			float actualTimeAnim = bookAnim["Book"].time;
+			bookAnim["Book"].time = actualTimeAnim;
 			bookAnim.Play("Book");
 		}
 	}
@@ -92,7 +100,7 @@ public class Magic : MonoBehaviour {
 
 	private void DoTriggerClicked(object sender, ControllerInteractionEventArgs e)
 	{
-		if (castMagic)
+		if (castMagic && !changingSpell)
 		{
 			castMagic = false;
 			activeProjector = false;
@@ -117,6 +125,12 @@ public class Magic : MonoBehaviour {
 				steamVR.transform.localPosition = oldPos + (normalize * distance);
 			}
 
+			// Hunt rune
+			if (lastMagicValue == 2)
+			{
+				actualRune.transform.GetChild(4).transform.localPosition = new Vector3(0, 0, -0.3f);
+			}
+
 			// Light rune
 			if (lastMagicValue == 4)
 			{
@@ -126,6 +140,26 @@ public class Magic : MonoBehaviour {
 	}
 
 	void Update () {
+		// Ouverture livre
+		if (bookOpen && bookAnim.transform.localEulerAngles != new Vector3(0, 90, 80))
+		{
+			currentAngle = new Vector3(
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.x, 0, Time.deltaTime),
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.y, 90, Time.deltaTime),
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.z, 80, Time.deltaTime));
+
+			bookAnim.transform.localEulerAngles = currentAngle;
+		}
+		else if (!bookOpen && bookAnim.transform.localEulerAngles != new Vector3(80, 0, 0))
+		{
+			currentAngle = new Vector3(
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.x, 80, Time.deltaTime),
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.y, 0, Time.deltaTime),
+				Mathf.LerpAngle(bookAnim.transform.localEulerAngles.z, 0, Time.deltaTime));
+
+			bookAnim.transform.localEulerAngles = currentAngle;
+		}
+
 		// Cooldown selon le sort
 		switch(lastMagicValue)
 		{
@@ -144,7 +178,7 @@ public class Magic : MonoBehaviour {
 		}
 
 		// Projection rune
-		if (lastMagicValue != swipeDetector.magicValue)
+		if (lastMagicValue != swipeDetector.magicValue && !changingSpell && !magicIsCasted)
 		{
 			castMagic = false;
 			timer = 0;
@@ -154,9 +188,10 @@ public class Magic : MonoBehaviour {
 			runeProjectors[lastMagicValue - 1].SetActive(true);
 			lastColor = orb.orbColor;
 			timer += Time.deltaTime;
+			changingSpell = true;
 		}
 
-		if (timer > 0f)
+		if (timer > 0f && changingSpell && !magicIsCasted)
 		{
 			timer += Time.deltaTime;
 			orb.orbColor = Color.Lerp(lastColor, colors[lastMagicValue - 1], colorTimer);
@@ -168,6 +203,7 @@ public class Magic : MonoBehaviour {
 			{
 				timer = 0;
 				castMagic = true;
+				changingSpell = false;
 			}
 		}
 
@@ -178,7 +214,7 @@ public class Magic : MonoBehaviour {
 		}
 
 		// Magie lancée
-		if (magicIsCasted)
+		if (magicIsCasted && !changingSpell)
 		{
 			if (timer == 0)
 			{
@@ -188,6 +224,12 @@ public class Magic : MonoBehaviour {
 			}
 
 			timer += Time.deltaTime;
+
+			// Hunt rune
+			if (timer <= 2f && lastMagicValue == 2 && actualRune.transform.GetChild(4).transform.localPosition.z <= 0)
+			{
+				actualRune.transform.GetChild(4).transform.localPosition += new Vector3(0, 0, 0.004f);
+			}
 
 			if (timer > 2f && timer < coolDown - 2f)
 			{
@@ -201,9 +243,15 @@ public class Magic : MonoBehaviour {
 			if (timer >= coolDown - 2f)
 			{
 				orb.orbColor = Color.Lerp(Color.white, lastColor, colorTimer);
+				
 				if (actualRune != null)
 				{
 					actualRune.transform.GetChild(0).GetComponent<Light>().intensity -= 0.01f;
+					// Hunt rune
+					if (lastMagicValue == 2 && actualRune.transform.GetChild(4).transform.localPosition.z >= -0.5f)
+					{
+						actualRune.transform.GetChild(4).transform.localPosition -= new Vector3(0, 0, 0.005f);
+					}
 				}
 			}
 			else if (timer <= 2f)

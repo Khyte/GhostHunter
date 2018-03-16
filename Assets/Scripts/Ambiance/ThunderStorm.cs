@@ -20,6 +20,10 @@ public class ThunderStorm : MonoBehaviour {
 	void Update () {
 		if (createThunder)
 		{
+			if (timer == 0)
+			{
+				thunderLight.transform.localEulerAngles = new Vector3(30, Random.Range(0, 360), 0);
+			}
 			timer += Time.deltaTime;
 
 			if (timer >= Random.Range(0.5f, 0.6f))

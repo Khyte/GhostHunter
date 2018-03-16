@@ -91,7 +91,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Shininess: 1
-    - _SliceAmount: 0.0077743363
+    - _SliceAmount: 0.0044881636
     - _SmoothnessTextureChannel: 0
     - _Spec: 0
     - _SpecularHighlights: 1

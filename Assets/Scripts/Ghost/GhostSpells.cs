@@ -8,6 +8,7 @@ public class GhostSpells : MonoBehaviour {
 
 	public int spellNbr = 0;
 
+	private int lastSpell = 0;
 	private int lastRune = 99;
 
 
@@ -25,8 +26,9 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 1;
+			lastSpell = 1;
 		}
-		else if (runeD.drawRune && spellNbr != 0)
+		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 1)
 		{
 			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
@@ -40,6 +42,7 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 1;
+			lastSpell = 1;
 		}
 		else
 		{
@@ -48,6 +51,7 @@ public class GhostSpells : MonoBehaviour {
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
 			runeD.line.enabled = false;
 			spellNbr = 0;
+			lastSpell = 0;
 		}
 	}
 
@@ -65,8 +69,9 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 2;
+			lastSpell = 2;
 		}
-		else if (runeD.drawRune && spellNbr != 0)
+		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 2)
 		{
 			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
@@ -80,6 +85,7 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 2;
+			lastSpell = 2;
 		}
 		else
 		{
@@ -88,6 +94,7 @@ public class GhostSpells : MonoBehaviour {
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
 			runeD.line.enabled = false;
 			spellNbr = 0;
+			lastSpell = 0;
 		}
 	}
 
@@ -105,8 +112,9 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 3;
+			lastSpell = 3;
 		}
-		else if (runeD.drawRune && spellNbr != 0)
+		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 3)
 		{
 			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
@@ -120,6 +128,7 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 3;
+			lastSpell = 3;
 		}
 		else
 		{
@@ -128,6 +137,7 @@ public class GhostSpells : MonoBehaviour {
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
 			runeD.line.enabled = false;
 			spellNbr = 0;
+			lastSpell = 0;
 		}
 	}
 
@@ -145,8 +155,9 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 4;
+			lastSpell = 4;
 		}
-		else if (runeD.drawRune && spellNbr != 0)
+		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 4)
 		{
 			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
@@ -160,6 +171,7 @@ public class GhostSpells : MonoBehaviour {
 			lastRune = runeD.randomRune;
 			runeD.CreateRune();
 			spellNbr = 4;
+			lastSpell = 4;
 		}
 		else
 		{
@@ -168,6 +180,7 @@ public class GhostSpells : MonoBehaviour {
 			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
 			runeD.line.enabled = false;
 			spellNbr = 0;
+			lastSpell = 0;
 		}
 	}
 

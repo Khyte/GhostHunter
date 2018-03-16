@@ -171,7 +171,7 @@ namespace VRTK
                 actualValidLocationObject = Instantiate(validLocationObject);
                 actualValidLocationObject.name = VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BezierPointerRenderer_ValidLocation");
                 actualValidLocationObject.transform.SetParent(actualCursor.transform);
-                actualValidLocationObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                actualValidLocationObject.layer = LayerMask.NameToLayer("Hunter");
                 actualValidLocationObject.SetActive(false);
             }
 
@@ -180,7 +180,7 @@ namespace VRTK
                 actualInvalidLocationObject = Instantiate(invalidLocationObject);
                 actualInvalidLocationObject.name = VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BezierPointerRenderer_InvalidLocation");
                 actualInvalidLocationObject.transform.SetParent(actualCursor.transform);
-                actualInvalidLocationObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+                actualInvalidLocationObject.layer = LayerMask.NameToLayer("Hunter");
                 actualInvalidLocationObject.SetActive(false);
             }
         }
@@ -191,7 +191,7 @@ namespace VRTK
             CreateCursorLocations();
             actualCursor.name = VRTK_SharedMethods.GenerateVRTKObjectName(true, gameObject.name, "BezierPointerRenderer_Cursor");
             VRTK_PlayerObject.SetPlayerObject(actualCursor, VRTK_PlayerObject.ObjectTypes.Pointer);
-            actualCursor.layer = LayerMask.NameToLayer("Ignore Raycast");
+            actualCursor.layer = LayerMask.NameToLayer("Hunter");
             actualCursor.SetActive(false);
         }
 

@@ -106,7 +106,7 @@ namespace VRTK
                     customTracer = true;
                     items[f] = (tracer != null ? Instantiate(tracer) : CreateSphere());
                     items[f].transform.SetParent(transform);
-                    items[f].layer = LayerMask.NameToLayer("Ignore Raycast");
+                    items[f].layer = LayerMask.NameToLayer("Hunter");
                     items[f].transform.localScale = new Vector3(circleSize, circleSize, circleSize);
                     if (customLineRenderer != null)
                     {

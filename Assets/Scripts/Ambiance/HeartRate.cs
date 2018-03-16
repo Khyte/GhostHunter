@@ -56,6 +56,7 @@ public class HeartRate : MonoBehaviour {
 			{
 				value = heartRateSlider.value;
 				baseValue = 60;
+				delta = 100 / (120 - baseValue);
 			}
 
 			// Test delta
@@ -63,15 +64,15 @@ public class HeartRate : MonoBehaviour {
 				deltaSlider.value = (value - baseValue) * delta;
 
 			// Orage
-			if (value - baseValue >= 10)
+			if ((value - baseValue) * delta >= 10)
 			{
 				thunderStorm.createThunder = true;
 				thunderStorm.timerThunder = 1000 / ((value - baseValue) * delta);
-				// min 15 et max 100
 			}
 			else
 			{
 				thunderStorm.createThunder = false;
+				thunderStorm.thunderLight.intensity = 0;
 			}
 		}
 

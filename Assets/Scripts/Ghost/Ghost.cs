@@ -12,6 +12,8 @@ public class Ghost : MonoBehaviour {
 	// Vie
 	public Slider lifeSlider;
 
+	private bool lightDmg = false;
+
 	// Visibilité
 	public Material ghostMat;
 	public GameObject ghostEye;
@@ -19,6 +21,7 @@ public class Ghost : MonoBehaviour {
 	public bool invisible = true;
 	public Image visibleIcon;
 	private Color ghostMatColor;
+	public Magic magic;
 
 	private Animation ghostAnim;
 
@@ -81,11 +84,13 @@ public class Ghost : MonoBehaviour {
 					lifeSlider.value -= 0.1f;
 					ghostAnim.Play("Damage");
 					invisible = false;
+					lightDmg = true;
 				}
 				else if (!runeDmg && lightRune.lights[(roomNbr * 3) - 1]._baseIntensity <= 0.6f && !runeMarked)
 				{
 					ghostAnim.Play("Idle");
 					invisible = true;
+					lightDmg = false;
 					return;
 				}
 			}
@@ -95,6 +100,13 @@ public class Ghost : MonoBehaviour {
 				invisible = true;
 				return;
 			}
+		}
+
+		// Visibilité selon la rune posée
+		if (magic.actualRune == null && !lightDmg)
+		{
+			invisible = true;
+			ghostAnim.Play("Idle");
 		}
 	}
 
@@ -110,6 +122,7 @@ public class Ghost : MonoBehaviour {
 		{
 			invisible = false;
 			runeMarked = true;
+			Debug.Log("VISIBLE");
 		}
 		if (other.tag == "Room")
 		{
