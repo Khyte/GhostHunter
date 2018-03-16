@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - HuntRune
   - MarkRune
+  - Possession
   layers:
   - Default
   - TransparentFX

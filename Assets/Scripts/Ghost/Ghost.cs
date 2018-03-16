@@ -9,6 +9,9 @@ public class Ghost : MonoBehaviour {
 	public GameObject mansionRoom;
 	public LightRune lightRune;
 
+	// Possessions
+	public GameObject possession;
+
 	// Vie
 	public Slider lifeSlider;
 
@@ -122,7 +125,6 @@ public class Ghost : MonoBehaviour {
 		{
 			invisible = false;
 			runeMarked = true;
-			Debug.Log("VISIBLE");
 		}
 		if (other.tag == "Room")
 		{

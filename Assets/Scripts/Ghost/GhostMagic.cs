@@ -73,33 +73,45 @@ public class GhostMagic : MonoBehaviour {
 		}
 
 		// Timer CD
-		if (timerCD[0] <= 20)
+		if (timerCD[0] <= 10)
 		{
 			timerCD[0] += Time.deltaTime;
+			float value = timerCD[0] / 10;
+			imagesCD[0].fillAmount = value;
 		}
 		if (timerCD[1] <= 40)
 		{
 			timerCD[1] += Time.deltaTime;
-			float value = (2.5f * timerCD[1]) / 100;
+			float value = timerCD[1] / 40;
 			imagesCD[1].fillAmount = value;
 		}
 		if (timerCD[2] <= 120)
 		{
 			timerCD[2] += Time.deltaTime;
-			float value = (2.5f * timerCD[2]) / 100;
+			float value = timerCD[2] / 120;
 			imagesCD[2].fillAmount = value;
 		}
 		if (timerCD[3] <= 20)
 		{
 			timerCD[3] += Time.deltaTime;
-			float value = (2.5f * timerCD[3]) / 100;
+			float value = timerCD[3] / 20;
 			imagesCD[3].fillAmount = value;
 		}
 	}
 
 	private void Possession()
 	{
-
+		if (ghost.possession != null)
+		{
+			// Si animator
+			if (ghost.possession.GetComponent<Animator>())
+			{
+				ghost.possession.GetComponent<Animator>().SetBool("Anim", true);
+				timerCD[0] = 0;
+				ghost.possession.GetComponent<BoxCollider>().enabled = false;
+				ghost.possession = null;
+			}
+		}
 	}
 
 	private void LightDown()
