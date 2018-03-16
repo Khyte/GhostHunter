@@ -145,6 +145,32 @@ public class Magic : MonoBehaviour {
 	}
 
 	void Update () {
+		//
+		if (Input.GetKeyDown("up"))
+		{
+			if (bookOpen)
+			{
+				bookOpen = false;
+				bookAnim["Book"].speed = -1;
+				float actualTimeAnim = bookAnim["Book"].time;
+				if (actualTimeAnim == 0)
+				{
+					actualTimeAnim = bookAnim["Book"].length;
+				}
+				bookAnim["Book"].time = actualTimeAnim;
+				bookAnim.Play("Book");
+			}
+			else
+			{
+				bookOpen = true;
+				bookAnim["Book"].speed = 1;
+				float actualTimeAnim = bookAnim["Book"].time;
+				bookAnim["Book"].time = actualTimeAnim;
+				bookAnim.Play("Book");
+			}
+		}
+		//
+
 		// Ouverture livre
 		if (bookOpen && bookAnim.transform.localEulerAngles != new Vector3(0, 90, 80))
 		{

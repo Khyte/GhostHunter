@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: bf3acad7e5db710469eaa63684c5c2e9
-timeCreated: 1521204131
+guid: 47fc17190f4e77a4187a952e1909d702
+timeCreated: 1521210160
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,33 +10,27 @@ ModelImporter:
     100004: Bone004
     100006: //RootNode
     100008: Joyau
-    100010: Line001
-    100012: Line002
-    100014: Livre
+    100010: Livre
+    100012: Pages
     400000: Bone001
     400002: Bone003
     400004: Bone004
     400006: //RootNode
     400008: Joyau
-    400010: Line001
-    400012: Line002
-    400014: Livre
+    400010: Livre
+    400012: Pages
     2100000: Livre
     2100002: Joyau
-    2100004: No Name
-    2300000: Line001
-    2300002: Line002
-    3300000: Line001
-    3300002: Line002
+    2100004: Pages
     4300000: Livre
     4300002: Joyau
-    4300004: Line001
-    4300006: Line002
-    7400000: Take 001
+    4300004: Pages
+    7400000: Book
     9500000: //RootNode
     11100000: //RootNode
     13700000: Joyau
     13700002: Livre
+    13700004: Pages
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,7 +57,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Book
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

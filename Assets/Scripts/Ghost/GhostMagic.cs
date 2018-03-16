@@ -86,10 +86,14 @@ public class GhostMagic : MonoBehaviour {
 		if (timerCD[2] <= 120)
 		{
 			timerCD[2] += Time.deltaTime;
+			float value = (2.5f * timerCD[2]) / 100;
+			imagesCD[2].fillAmount = value;
 		}
-		if (timerCD[3] <= 30)
+		if (timerCD[3] <= 20)
 		{
 			timerCD[3] += Time.deltaTime;
+			float value = (2.5f * timerCD[3]) / 100;
+			imagesCD[3].fillAmount = value;
 		}
 	}
 
@@ -123,12 +127,14 @@ public class GhostMagic : MonoBehaviour {
 
 	private void Teleport()
 	{
-
+		ghost.transform.localPosition = new Vector3(0, ghost.transform.localPosition.y, 0);
+		timerCD[2] = 0;
 	}
 
 	private void Taunt()
 	{
-
+		//ghost.GetComponent<AudioSource>().Play();
+		timerCD[3] = 0;
 	}
 
 }

@@ -21,7 +21,7 @@ ModelImporter:
     2100002: Joyau
     4300000: Livre
     4300002: Joyau
-    7400000: Book
+    7400000: Take001
     9500000: //RootNode
     11100000: //RootNode
     13700000: Joyau
@@ -54,7 +54,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Book
+      name: Take001
       takeName: Take 001
       firstFrame: 0
       lastFrame: 90
