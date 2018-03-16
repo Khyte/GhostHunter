@@ -17,6 +17,8 @@ public class RuneDrawing : MonoBehaviour {
 
 	public bool drawRune = false;
 
+	public bool runeDone = false;
+
 
 	void Start () {
 		line = GetComponent<LineRenderer>();
@@ -137,7 +139,7 @@ public class RuneDrawing : MonoBehaviour {
 					rune[randomRune].transform.gameObject.SetActive(false);
 					animTuto[randomRune].gameObject.SetActive(false);
 					drawRune = false;
-					Debug.Log("BON DESSIN");
+					runeDone = true;
 				}
 			}
 		}

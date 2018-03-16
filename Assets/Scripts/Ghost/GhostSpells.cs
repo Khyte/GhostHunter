@@ -5,6 +5,7 @@ using UnityEngine;
 public class GhostSpells : MonoBehaviour {
 
 	public RuneDrawing runeD;
+	public GhostMagic ghostMagic;
 
 	public int spellNbr = 0;
 
@@ -14,173 +15,185 @@ public class GhostSpells : MonoBehaviour {
 
 	public void Possession()
 	{
-		if (!runeD.drawRune)
+		if (ghostMagic.imagesCD[0].fillAmount == 1)
 		{
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			if (!runeD.drawRune)
 			{
-				Possession();
-				return;
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Possession();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 1;
+				lastSpell = 1;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 1;
-			lastSpell = 1;
-		}
-		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 1)
-		{
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			else if (runeD.drawRune && spellNbr != 0 && lastSpell != 1)
 			{
-				Possession();
-				return;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Possession();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 1;
+				lastSpell = 1;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 1;
-			lastSpell = 1;
-		}
-		else
-		{
-			runeD.drawRune = false;
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			spellNbr = 0;
-			lastSpell = 0;
+			else
+			{
+				runeD.drawRune = false;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				spellNbr = 0;
+				lastSpell = 0;
+			}
 		}
 	}
 
 	public void LightDown()
 	{
-		if (!runeD.drawRune)
+		if (ghostMagic.imagesCD[1].fillAmount == 1)
 		{
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			if (!runeD.drawRune)
 			{
-				LightDown();
-				return;
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					LightDown();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 2;
+				lastSpell = 2;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 2;
-			lastSpell = 2;
-		}
-		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 2)
-		{
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			else if (runeD.drawRune && spellNbr != 0 && lastSpell != 2)
 			{
-				LightDown();
-				return;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					LightDown();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 2;
+				lastSpell = 2;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 2;
-			lastSpell = 2;
-		}
-		else
-		{
-			runeD.drawRune = false;
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			spellNbr = 0;
-			lastSpell = 0;
+			else
+			{
+				runeD.drawRune = false;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				spellNbr = 0;
+				lastSpell = 0;
+			}
 		}
 	}
 
 	public void Teleport()
 	{
-		if (!runeD.drawRune)
+		if (ghostMagic.imagesCD[2].fillAmount == 1)
 		{
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			if (!runeD.drawRune)
 			{
-				Teleport();
-				return;
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Teleport();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 3;
+				lastSpell = 3;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 3;
-			lastSpell = 3;
-		}
-		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 3)
-		{
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			else if (runeD.drawRune && spellNbr != 0 && lastSpell != 3)
 			{
-				Teleport();
-				return;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Teleport();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 3;
+				lastSpell = 3;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 3;
-			lastSpell = 3;
-		}
-		else
-		{
-			runeD.drawRune = false;
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			spellNbr = 0;
-			lastSpell = 0;
+			else
+			{
+				runeD.drawRune = false;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				spellNbr = 0;
+				lastSpell = 0;
+			}
 		}
 	}
 
 	public void Taunt()
 	{
-		if (!runeD.drawRune)
+		if (ghostMagic.imagesCD[3].fillAmount == 1)
 		{
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			if (!runeD.drawRune)
 			{
-				Taunt();
-				return;
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Taunt();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 4;
+				lastSpell = 4;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 4;
-			lastSpell = 4;
-		}
-		else if (runeD.drawRune && spellNbr != 0 && lastSpell != 4)
-		{
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			runeD.randomRune = Random.Range(0, runeD.rune.Length);
-			if (lastRune == runeD.randomRune)
+			else if (runeD.drawRune && spellNbr != 0 && lastSpell != 4)
 			{
-				Taunt();
-				return;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				runeD.randomRune = Random.Range(0, runeD.rune.Length);
+				if (lastRune == runeD.randomRune)
+				{
+					Taunt();
+					return;
+				}
+				lastRune = runeD.randomRune;
+				runeD.CreateRune();
+				spellNbr = 4;
+				lastSpell = 4;
 			}
-			lastRune = runeD.randomRune;
-			runeD.CreateRune();
-			spellNbr = 4;
-			lastSpell = 4;
-		}
-		else
-		{
-			runeD.drawRune = false;
-			runeD.rune[runeD.randomRune].gameObject.SetActive(false);
-			runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
-			runeD.line.enabled = false;
-			spellNbr = 0;
-			lastSpell = 0;
+			else
+			{
+				runeD.drawRune = false;
+				runeD.rune[runeD.randomRune].gameObject.SetActive(false);
+				runeD.animTuto[runeD.randomRune].gameObject.SetActive(false);
+				runeD.line.enabled = false;
+				spellNbr = 0;
+				lastSpell = 0;
+			}
 		}
 	}
 

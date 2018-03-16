@@ -23,7 +23,7 @@ public class MovingGhost : MonoBehaviour {
 		}
 		if (waypoint.goToDest)
 		{
-			agent.speed = 3;
+			agent.speed = 2;
 			Vector3 dest = waypoint.waypoints[pointNbr].transform.localPosition;
 			agent.destination = new Vector3(dest.x, 0, dest.z);
 		}

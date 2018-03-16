@@ -30,8 +30,6 @@ public class HeartRate : MonoBehaviour {
 	private float value;
 	private float baseValue;
 
-	private bool rumbleT = false;
-
 
 	private void Awake()
 	{
@@ -81,12 +79,6 @@ public class HeartRate : MonoBehaviour {
 				thunderStorm.createThunder = false;
 				thunderStorm.thunderLight.intensity = 0;
 			}
-
-			if ((value - baseValue) * delta >= 10 && !rumbleT)
-			{
-				rumbleT = true;
-				StartCoroutine(Rumble());
-			}
 		}
 
 		// Materiaux
@@ -115,17 +107,6 @@ public class HeartRate : MonoBehaviour {
 		yield return new WaitForSeconds(0.7f);
 		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.8f, 0.3f, 0.01f);
 		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference2, 0.8f, 0.3f, 0.01f);
-		if ((value - baseValue) * delta >= 1)
-		{
-			float timeRumb = 2000 / ((value - baseValue) * delta);
-			yield return new WaitForSeconds(timeRumb);
-			rumbleT = false;
-		}
-		else
-		{
-			yield return new WaitForSeconds(200);
-			rumbleT = false;
-		}
 	}
 
 }

@@ -45,9 +45,9 @@ public class Magic : MonoBehaviour {
 
 	void Start () {
 		// VRTK
-		leftController.GetComponent<VRTK_ControllerEvents>().GripPressed += new ControllerInteractionEventHandler(DoGripPressed);
+		leftController.GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClickedLeft);
 		pointer.GetComponent<VRTK_ControllerEvents>().TouchpadPressed += new ControllerInteractionEventHandler(DoTouchpadPressed);
-		pointer.GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClicked);
+		pointer.GetComponent<VRTK_ControllerEvents>().TriggerClicked += new ControllerInteractionEventHandler(DoTriggerClickedRight);
 
 		swipeDetector = leftController.GetComponent<SwipeDetector>();
 		orb = GetComponent<OrbColor>();
@@ -61,19 +61,24 @@ public class Magic : MonoBehaviour {
 		orb.orbColor = colors[0];
 	}
 
-	private void DoGripPressed(object sender, ControllerInteractionEventArgs e)
+	private void DoTriggerClickedLeft(object sender, ControllerInteractionEventArgs e)
 	{
-		bookOpen = !bookOpen;
 		if (bookOpen)
 		{
-			bookAnim["Book"].speed = 1;
+			bookOpen = false;
+			bookAnim["Book"].speed = -1;
 			float actualTimeAnim = bookAnim["Book"].time;
+			if (actualTimeAnim == 0)
+			{
+				actualTimeAnim = bookAnim["Book"].length;
+			}
 			bookAnim["Book"].time = actualTimeAnim;
 			bookAnim.Play("Book");
 		}
 		else
 		{
-			bookAnim["Book"].speed = -1;
+			bookOpen = true;
+			bookAnim["Book"].speed = 1;
 			float actualTimeAnim = bookAnim["Book"].time;
 			bookAnim["Book"].time = actualTimeAnim;
 			bookAnim.Play("Book");
@@ -98,7 +103,7 @@ public class Magic : MonoBehaviour {
 		}
 	}
 
-	private void DoTriggerClicked(object sender, ControllerInteractionEventArgs e)
+	private void DoTriggerClickedRight(object sender, ControllerInteractionEventArgs e)
 	{
 		if (castMagic && !changingSpell)
 		{
