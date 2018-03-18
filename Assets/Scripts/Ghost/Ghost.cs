@@ -13,7 +13,7 @@ public class Ghost : MonoBehaviour {
 	public GameObject possession;
 
 	// Vie
-	public Slider lifeSlider;
+	public Image life;
 
 	private bool lightDmg = false;
 
@@ -84,7 +84,7 @@ public class Ghost : MonoBehaviour {
 			{
 				if (lightRune.lights[(roomNbr * 3) - 1]._baseIntensity > 0.6f)
 				{
-					lifeSlider.value -= 0.1f;
+					life.fillAmount -= 0.01f;
 					ghostAnim.Play("Damage");
 					invisible = false;
 					lightDmg = true;
@@ -139,9 +139,9 @@ public class Ghost : MonoBehaviour {
 	{
 		if (other.tag == "HuntRune")
 		{
-			if (lifeSlider.value > 0)
+			if (life.fillAmount > 0)
 			{
-				lifeSlider.value -= 0.2f;
+				life.fillAmount -= 0.02f;
 			}
 		}
 	}
