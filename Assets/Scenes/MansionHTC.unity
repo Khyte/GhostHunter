@@ -380,6 +380,37 @@ Animation:
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 47fc17190f4e77a4187a952e1909d702, type: 3}
   m_PrefabInternal: {fileID: 457679736}
+--- !u!84 &12383900
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 0
+  m_MipMap: 1
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &25931481
 GameObject:
   m_ObjectHideFlags: 0
@@ -19681,37 +19712,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1106511392}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &1107891386
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 0
-  m_MipMap: 1
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1110715274
 GameObject:
   m_ObjectHideFlags: 0
@@ -20882,7 +20882,8 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 513d95f084d7390468256b5debfaf213, type: 3}
   m_Animations:
   - {fileID: 7400000, guid: 513d95f084d7390468256b5debfaf213, type: 3}
-  - {fileID: 7400000, guid: 77c4e2d88a2ce9d4989aeb861c51002f, type: 3}
+  - {fileID: 7400000, guid: 45e51a394c4580644901a479ce8d3962, type: 3}
+  - {fileID: 7400000, guid: a4ded21f84398c34386e9d020649307d, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -20928,7 +20929,7 @@ MonoBehaviour:
   mansionRoom: {fileID: 0}
   lightRune: {fileID: 2010551478}
   possession: {fileID: 0}
-  life: {fileID: 0}
+  life: {fileID: 29149514}
   ghostMat: {fileID: 2100000, guid: deedf50fe4208a94a84d645de2d15365, type: 2}
   ghostEye: {fileID: 1246792532}
   fireParticles: {fileID: 1858494051}

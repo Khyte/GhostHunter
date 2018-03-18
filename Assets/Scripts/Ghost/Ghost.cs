@@ -49,6 +49,12 @@ public class Ghost : MonoBehaviour {
 
 	private void Update()
 	{
+		// Animation idle quand caché
+		if (ghostMat.color == Color.black)
+		{
+			ghostAnim.Play("Idle");
+		}
+
 		// Visiblité du fantome
 		if (!invisible)
 			visibleIcon.color = Color.Lerp(new Color(1, 1, 1, 0.3f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
@@ -84,14 +90,17 @@ public class Ghost : MonoBehaviour {
 			{
 				if (lightRune.lights[(roomNbr * 3) - 1]._baseIntensity > 0.6f)
 				{
-					life.fillAmount -= 0.01f;
-					ghostAnim.Play("Damage");
+					if (!ghostAnim.IsPlaying("Dmg"))
+					{
+						ghostAnim.Play("IdleToDmg");
+					}
+					ghostAnim.PlayQueued("Dmg");
+					life.fillAmount -= 0.02f * Time.deltaTime;
 					invisible = false;
 					lightDmg = true;
 				}
 				else if (!runeDmg && lightRune.lights[(roomNbr * 3) - 1]._baseIntensity <= 0.6f && !runeMarked)
 				{
-					ghostAnim.Play("Idle");
 					invisible = true;
 					lightDmg = false;
 					return;
@@ -99,25 +108,28 @@ public class Ghost : MonoBehaviour {
 			}
 			else if (!runeMarked && !runeDmg)
 			{
-				ghostAnim.Play("Idle");
 				invisible = true;
 				return;
 			}
 		}
 
 		// Visibilité selon la rune posée
-		if (magic.actualRune == null && !lightDmg)
+		/*if (magic.actualRune == null && !lightDmg && !runeDmg)
 		{
 			invisible = true;
-			ghostAnim.Play("Idle");
-		}
+			if (!ghostAnim.IsPlaying("Idle"))
+			{
+				ghostAnim["IdleToDmg"].speed = -1;
+				ghostAnim["IdleToDmg"].time = ghostAnim["IdleToDmg"].length;
+			}
+			ghostAnim.PlayQueued("Idle");
+		}*/
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "HuntRune")
 		{
-			ghostAnim.Play("Damage");
 			runeDmg = true;
 			invisible = false;
 		}
@@ -139,9 +151,14 @@ public class Ghost : MonoBehaviour {
 	{
 		if (other.tag == "HuntRune")
 		{
+			if (!ghostAnim.IsPlaying("Dmg"))
+			{
+				ghostAnim.Play("IdleToDmg");
+			}
+			ghostAnim.PlayQueued("Dmg");
 			if (life.fillAmount > 0)
 			{
-				life.fillAmount -= 0.02f;
+				life.fillAmount -= 0.08f * Time.deltaTime;
 			}
 		}
 	}
@@ -150,7 +167,6 @@ public class Ghost : MonoBehaviour {
 	{
 		if (other.tag == "HuntRune")
 		{
-			ghostAnim.Play("Idle");
 			runeDmg = false;
 			invisible = true;
 		}
