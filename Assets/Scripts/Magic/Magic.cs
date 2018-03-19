@@ -21,6 +21,13 @@ public class Magic : MonoBehaviour {
 	public GameObject[] runes;
 	public GameObject actualRune;
 
+	// Pages
+	public Material pageMat;
+	public Texture page1;
+	public Texture page2;
+	public Texture page3;
+	public Texture page4;
+
 	public float coolDown;
 
 	// Couleur orbe
@@ -59,6 +66,8 @@ public class Magic : MonoBehaviour {
 		colors[3] = new Color(1f, 1f, 0f);
 
 		orb.orbColor = colors[0];
+
+		pageMat.SetTexture("_MainTex", page1);
 	}
 
 	private void DoTriggerClickedLeft(object sender, ControllerInteractionEventArgs e)
@@ -145,31 +154,21 @@ public class Magic : MonoBehaviour {
 	}
 
 	void Update () {
-		//
-		if (Input.GetKeyDown("up"))
-		{
-			if (bookOpen)
-			{
-				bookOpen = false;
-				bookAnim["Book"].speed = -1;
-				float actualTimeAnim = bookAnim["Book"].time;
-				if (actualTimeAnim == 0)
-				{
-					actualTimeAnim = bookAnim["Book"].length;
-				}
-				bookAnim["Book"].time = actualTimeAnim;
-				bookAnim.Play("Book");
-			}
-			else
-			{
-				bookOpen = true;
-				bookAnim["Book"].speed = 1;
-				float actualTimeAnim = bookAnim["Book"].time;
-				bookAnim["Book"].time = actualTimeAnim;
-				bookAnim.Play("Book");
-			}
+		// Pages du livre
+		switch (lastMagicValue) {
+			case 1:
+				pageMat.SetTexture("_MainTex", page1);
+				break;
+			case 2:
+				pageMat.SetTexture("_MainTex", page2);
+				break;
+			case 3:
+				pageMat.SetTexture("_MainTex", page3);
+				break;
+			case 4:
+				pageMat.SetTexture("_MainTex", page4);
+				break;
 		}
-		//
 
 		// Ouverture livre
 		if (bookOpen && bookAnim.transform.localEulerAngles != new Vector3(0, 90, 80))
