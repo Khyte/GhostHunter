@@ -155,7 +155,7 @@ public class Magic : MonoBehaviour {
 
 	void Update () {
 		// Pages du livre
-		switch (lastMagicValue) {
+		switch (swipeDetector.magicValue) {
 			case 1:
 				pageMat.SetTexture("_MainTex", page1);
 				break;

@@ -18,6 +18,7 @@ public class HeartRate : MonoBehaviour {
 	// Santé mentale
 	public Slider lifeSlider;
 	public float life;
+	public Material[] lifeMat;
 
 	// Matériaux
 	public Material[] mat;
@@ -38,6 +39,11 @@ public class HeartRate : MonoBehaviour {
 	private void Awake()
 	{
 		life = 100;
+
+		for (int i = 0 ; i < lifeMat.Length ; i++)
+		{
+			lifeMat[i].color = new Color(0, 1, 0);
+		}
 
 		gameC = GetComponent<GameController>();
 		thunderStorm = GetComponent<ThunderStorm>();
@@ -89,6 +95,21 @@ public class HeartRate : MonoBehaviour {
 
 			// Life
 			life = lifeSlider.value;
+			float lifeValue = life * 0.01f;
+			if (lifeValue >= 0.05f)
+			{
+				for (int i = 0 ; i < lifeMat.Length ; i++)
+				{
+					lifeMat[i].color = new Color(1 - lifeValue, lifeValue, 0);
+				}
+			}
+			else
+			{
+				for (int i = 0 ; i < lifeMat.Length ; i++)
+				{
+					lifeMat[i].color = new Color(0, 0, 0, 1);
+				}
+			}
 		}
 
 		// Materiaux
