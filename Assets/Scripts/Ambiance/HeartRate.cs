@@ -16,7 +16,8 @@ public class HeartRate : MonoBehaviour {
 	public float delta;
 
 	// Santé mentale
-	public Slider life;
+	public Slider lifeSlider;
+	public float life;
 
 	// Matériaux
 	public Material[] mat;
@@ -36,6 +37,8 @@ public class HeartRate : MonoBehaviour {
 
 	private void Awake()
 	{
+		life = 100;
+
 		gameC = GetComponent<GameController>();
 		thunderStorm = GetComponent<ThunderStorm>();
 		if (MIO.activeInHierarchy)
@@ -76,13 +79,16 @@ public class HeartRate : MonoBehaviour {
 			{
 				thunderStorm.createThunder = true;
 				thunderStorm.timerThunder = 1000 / ((value - baseValue) * delta);
-				life.value -= 0.000006f * ((value - baseValue) * delta) * Mathf.Exp(3);
+				lifeSlider.value -= 0.000006f * ((value - baseValue) * delta) * Mathf.Exp(3);
 			}
 			else
 			{
 				thunderStorm.createThunder = false;
 				thunderStorm.thunderLight.intensity = 0;
 			}
+
+			// Life
+			life = lifeSlider.value;
 		}
 
 		// Materiaux

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Portes : MonoBehaviour {
 
@@ -9,6 +10,11 @@ public class Portes : MonoBehaviour {
 
 	private Quaternion porte1Pos;
 	private Quaternion porte2Pos;
+
+	public Sprite closedDoor;
+	public Sprite openDoor;
+
+	private Image img;
 
 	private bool closingDoor;
 	private float timer;
@@ -21,6 +27,9 @@ public class Portes : MonoBehaviour {
 		{
 			porte2Pos = porte2.transform.localRotation;
 		}
+
+		img = GetComponent<Image>();
+		img.sprite = closedDoor;
 	}
 
 	public void CloseDoor()
@@ -44,6 +53,26 @@ public class Portes : MonoBehaviour {
 				closingDoor = false;
 				timer = 0;
 			}
+		}
+
+		if (porte1.transform.localRotation.z <= porte1Pos.z - 0.002f || porte1.transform.localRotation.z >= porte1Pos.z + 0.002f)
+		{
+			img.sprite = openDoor;
+		}
+		else if (porte2 != null)
+		{
+			if (porte2.transform.localRotation.z <= porte2Pos.z - 0.002f || porte2.transform.localRotation.z >= porte2Pos.z + 0.002f)
+			{
+				img.sprite = openDoor;
+			}
+			else
+			{
+				img.sprite = closedDoor;
+			}
+		}
+		else
+		{
+			img.sprite = closedDoor;
 		}
 	}
 
