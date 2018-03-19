@@ -17,12 +17,16 @@ public class Ghost : MonoBehaviour {
 
 	private bool lightDmg = false;
 
+	// Icones
+	public Image visibleIcon;
+	public Image lightIcon;
+	public Image dmgIcon;
+
 	// Visibilité
 	public Material ghostMat;
 	public GameObject ghostEye;
 	public ParticleSystem fireParticles;
 	public bool invisible = true;
-	public Image visibleIcon;
 	private Color ghostMatColor;
 	public Magic magic;
 
@@ -37,6 +41,12 @@ public class Ghost : MonoBehaviour {
 	private float t = 0;
 
 
+	private void Awake()
+	{
+		transform.localPosition = Random.insideUnitSphere * 10f;
+		transform.localPosition = new Vector3(transform.localPosition.x, 0.8f, transform.localPosition.z);
+	}
+
 	private void Start()
 	{
 		ghostAnim = GetComponent<Animation>();
@@ -45,6 +55,11 @@ public class Ghost : MonoBehaviour {
 		ghostEye.SetActive(false);
 		lastVisible = invisible;
 		fireParticles.emissionRate = 0;
+
+		// Icones
+		visibleIcon.color = new Color(1, 1, 1, 0.1f);
+		lightIcon.color = new Color(1, 1, 1, 0.1f);
+		dmgIcon.color = new Color(1, 1, 1, 0.1f);
 	}
 
 	private void Update()
@@ -55,11 +70,41 @@ public class Ghost : MonoBehaviour {
 			ghostAnim.Play("Idle");
 		}
 
+		// Icone lumière
+		if (lightDmg)
+		{
+			lightIcon.color = Color.Lerp(new Color(1, 1, 1, 0.1f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
+			lightIcon.transform.GetChild(0).gameObject.SetActive(true);
+		}
+		else
+		{
+			lightIcon.color = new Color(1, 1, 1, 0.1f);
+			lightIcon.transform.GetChild(0).gameObject.SetActive(false);
+		}
+
+		// Icone dégats
+		if (runeDmg)
+		{
+			dmgIcon.color = Color.Lerp(new Color(1, 1, 1, 0.1f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
+			dmgIcon.transform.GetChild(0).gameObject.SetActive(true);
+		}
+		else
+		{
+			dmgIcon.color = new Color(1, 1, 1, 0.1f);
+			dmgIcon.transform.GetChild(0).gameObject.SetActive(false);
+		}
+
 		// Visiblité du fantome
 		if (!invisible)
-			visibleIcon.color = Color.Lerp(new Color(1, 1, 1, 0.3f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
+		{
+			visibleIcon.color = Color.Lerp(new Color(1, 1, 1, 0.1f), new Color(1, 1, 1, 1f), Mathf.PingPong(Time.time, 1));
+			visibleIcon.transform.GetChild(0).gameObject.SetActive(true);
+		}
 		else
-			visibleIcon.color = new Color(1, 1, 1, 0.3f);
+		{
+			visibleIcon.color = new Color(1, 1, 1, 0.1f);
+			visibleIcon.transform.GetChild(0).gameObject.SetActive(false);
+		}
 		if (lastVisible != invisible)
 		{
 			lastVisible = invisible;
@@ -69,7 +114,7 @@ public class Ghost : MonoBehaviour {
 		if (visibleTimer <= 3f && invisible)
 		{
 			visibleTimer += Time.deltaTime;
-			t = visibleTimer / 2.5f;
+			t = visibleTimer / 1f;
 			ghostEye.SetActive(false);
 			ghostMat.color = Color.Lerp(ghostMatColor, Color.black, t);
 			fireParticles.emissionRate = 0;
