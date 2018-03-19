@@ -104,6 +104,10 @@ public class Ghost : MonoBehaviour {
 		{
 			visibleIcon.color = new Color(1, 1, 1, 0.1f);
 			visibleIcon.transform.GetChild(0).gameObject.SetActive(false);
+			dmgIcon.color = new Color(1, 1, 1, 0.1f);
+			dmgIcon.transform.GetChild(0).gameObject.SetActive(false);
+			lightIcon.color = new Color(1, 1, 1, 0.1f);
+			lightIcon.transform.GetChild(0).gameObject.SetActive(false);
 		}
 		if (lastVisible != invisible)
 		{
@@ -156,19 +160,17 @@ public class Ghost : MonoBehaviour {
 				invisible = true;
 				return;
 			}
+			else if (roomNbr == 0)
+			{
+				lightDmg = false;
+			}
 		}
 
 		// Visibilité selon la rune posée
-		/*if (magic.actualRune == null && !lightDmg && !runeDmg)
+		if (magic.actualRune == null && !lightDmg && !runeDmg)
 		{
 			invisible = true;
-			if (!ghostAnim.IsPlaying("Idle"))
-			{
-				ghostAnim["IdleToDmg"].speed = -1;
-				ghostAnim["IdleToDmg"].time = ghostAnim["IdleToDmg"].length;
-			}
-			ghostAnim.PlayQueued("Idle");
-		}*/
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)

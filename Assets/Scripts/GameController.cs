@@ -6,6 +6,13 @@ public class GameController : MonoBehaviour {
 
 	public bool startGame;
 
+	// Timer et horloges
+	public float globalTimer = 0;
+	public GameObject pointer1;
+	public GameObject pointer2;
+	public Animator cogAnim;
+	public GameObject smoke;
+
 	private float timer = 0;
 
 
@@ -21,6 +28,15 @@ public class GameController : MonoBehaviour {
 		if (timer >= 10f && !startGame)
 		{
 			startGame = true;
+			cogAnim.enabled = true;
+			smoke.SetActive(true);
+		}
+
+		if (timer >= 10f)
+		{
+			globalTimer += Time.deltaTime;
+			pointer1.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);
+			pointer2.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);
 		}
 	}
 }
