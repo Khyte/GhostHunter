@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour {
 	public Image noWinner;
 	public Image ghostWinner;
 	public Image hunterWinner;
+	public Image htcImg;
+	public Text htcText;
+	public Material htcTextColor;
 
 	public Ghost ghost;
 	public HeartRate hRate;
@@ -35,6 +38,9 @@ public class GameController : MonoBehaviour {
 	{
 		Screen.fullScreen = true;
 		Screen.SetResolution(1920, 1080, true);
+		htcText.text = "";
+		htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
+		AudioListener.volume = 1f;
 	}
 
 	void Update () {
@@ -66,6 +72,7 @@ public class GameController : MonoBehaviour {
 		// Fin
 		if (globalTimer >= 300f && !end && !preEnd2 && !preEnd3)
 		{
+			AudioListener.volume = 0f;
 			preEnd1 = true;
 			for (int i = 0 ; i < cogAnim.Length ; i++)
 			{
@@ -73,6 +80,7 @@ public class GameController : MonoBehaviour {
 			}
 			smoke.SetActive(false);
 			noWinner.color = Color.Lerp(new Color(0, 0, 0 , 0), Color.black, colorTimer);
+			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
 				colorTimer += Time.deltaTime / 2f;
@@ -81,11 +89,14 @@ public class GameController : MonoBehaviour {
 			{
 				noWinner.transform.GetChild(0).gameObject.SetActive(true);
 				end = true;
+				htcText.text = "The night has ended... \n You will have to come back next night";
+				htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
 			}
 		}
 		// Victoire fantome
 		else if (hRate.life <= 0f && !end && !preEnd1 && !preEnd3)
 		{
+			AudioListener.volume = 0f;
 			preEnd2 = true;
 			for (int i = 0 ; i < cogAnim.Length ; i++)
 			{
@@ -93,6 +104,7 @@ public class GameController : MonoBehaviour {
 			}
 			smoke.SetActive(false);
 			ghostWinner.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
+			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
 				colorTimer += Time.deltaTime / 2f;
@@ -101,11 +113,14 @@ public class GameController : MonoBehaviour {
 			{
 				ghostWinner.transform.GetChild(0).gameObject.SetActive(true);
 				end = true;
+				htcText.text = "The night has ended... \n You have lost your mind, \n and will never come back ...";
+				htcTextColor.color = new Color(0.8f, 0.2f, 0.2f);
 			}
 		}
 		// Victoire chasseur
 		else if (ghost.life.fillAmount <= 0f && !end && !preEnd1 && !preEnd2)
 		{
+			AudioListener.volume = 0f;
 			preEnd3 = true;
 			for (int i = 0 ; i < cogAnim.Length ; i++)
 			{
@@ -113,6 +128,7 @@ public class GameController : MonoBehaviour {
 			}
 			smoke.SetActive(false);
 			hunterWinner.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
+			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
 				colorTimer += Time.deltaTime / 2f;
@@ -121,6 +137,8 @@ public class GameController : MonoBehaviour {
 			{
 				hunterWinner.transform.GetChild(0).gameObject.SetActive(true);
 				end = true;
+				htcText.text = "The night has ended... \n You have allowed \n your friend to find peace";
+				htcTextColor.color = new Color(0.2f, 0.8f, 0.2f);
 			}
 		}
 	}

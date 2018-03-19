@@ -27,6 +27,13 @@ public class HeartRate : MonoBehaviour {
 	public GameObject rightController;
 	public GameObject leftController;
 
+	// Sons
+	public AudioSource ambiance;
+	public AudioSource randomAmbiance;
+	public AudioClip[] randomFear;
+	public AudioSource randomSpatial;
+	public AudioClip[] randomSpatialFear;
+
 	private GameController gameC;
 	private ThunderStorm thunderStorm;
 	private HeartRateServer heartRate;
@@ -58,6 +65,8 @@ public class HeartRate : MonoBehaviour {
 		{
 			mat[i].SetColor("_SnowAccumulation", new Vector4(0, 4f, 0, 0));
 		}
+
+		ambiance.volume = 0.1f;
 	}
 
 	void Update () {
@@ -80,17 +89,54 @@ public class HeartRate : MonoBehaviour {
 			if (value >= baseValue)
 				deltaSlider.value = (value - baseValue) * delta;
 
-			// Orage
+			// Life delta >= 10
 			if ((value - baseValue) * delta >= 10)
+			{
+				lifeSlider.value -= 0.000006f * ((value - baseValue) * delta) * Mathf.Exp(3);
+			}
+
+			// Thunder delta >= 20
+			if ((value - baseValue) * delta >= 20)
 			{
 				thunderStorm.createThunder = true;
 				thunderStorm.timerThunder = 1000 / ((value - baseValue) * delta);
-				lifeSlider.value -= 0.000006f * ((value - baseValue) * delta) * Mathf.Exp(3);
 			}
 			else
 			{
 				thunderStorm.createThunder = false;
 				thunderStorm.thunderLight.intensity = 0;
+			}
+
+			// Sounds delta >= 30
+			if ((value - baseValue) * delta >= 30)
+			{
+				randomAmbiance.volume = ((value - baseValue) * delta * 0.01f) - 0.25f;
+				if (!randomAmbiance.isPlaying)
+				{
+					randomAmbiance.clip = randomFear[Random.Range(0, randomFear.Length)];
+					randomAmbiance.Play();
+				}
+			}
+			else
+			{
+				randomAmbiance.volume = 0;
+			}
+
+			// Sounds delta >= 60
+			if ((value - baseValue) * delta >= 60)
+			{
+				randomSpatial.volume = ((value - baseValue) * delta * 0.01f) - 0.35f;
+				if (!randomSpatial.isPlaying)
+				{
+					randomSpatial.clip = randomSpatialFear[Random.Range(0, randomSpatialFear.Length)];
+					randomSpatial.Play();
+					randomSpatial.transform.localPosition = (new Vector3(0, 5, 0)) + Random.insideUnitSphere * 15;
+					randomSpatial.transform.localPosition = new Vector3(randomSpatial.transform.localPosition.x, 5, randomSpatial.transform.localPosition.z);
+				}
+			}
+			else
+			{
+				randomSpatial.volume = 0;
 			}
 
 			// Life
@@ -109,6 +155,13 @@ public class HeartRate : MonoBehaviour {
 				{
 					lifeMat[i].color = new Color(0, 0, 0, 1);
 				}
+			}
+
+			// Sounds
+			ambiance.volume = (value - baseValue) * 0.01f * delta;
+			if (ambiance.volume <= 0.1f)
+			{
+				ambiance.volume = 0.1f;
 			}
 		}
 

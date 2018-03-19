@@ -145,7 +145,7 @@ public class GhostMagic : MonoBehaviour {
 
 	private void Taunt()
 	{
-		//ghost.GetComponent<AudioSource>().Play();
+		ghost.GetComponent<AudioSource>().Play();
 		timerCD[3] = 0;
 	}
 

@@ -26,6 +26,10 @@ public class CoffreFort : MonoBehaviour {
 
 	IEnumerator FlyingIngotTimer()
 	{
+		if (parent.GetChild(ingotNbr - 1).GetComponent<AudioSource>())
+		{
+			parent.GetChild(ingotNbr - 1).GetComponent<AudioSource>().Play();
+		}
 		yield return new WaitForSeconds(Random.Range(0.01f, 0.2f));
 		parent.GetChild(ingotNbr - 1).GetComponent<Rigidbody>().useGravity = true;
 		parent.GetChild(ingotNbr - 1).GetComponent<Rigidbody>().isKinematic = false;
