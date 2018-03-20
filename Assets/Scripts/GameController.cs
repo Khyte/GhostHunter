@@ -17,9 +17,8 @@ public class GameController : MonoBehaviour {
 	public AudioClip[] gongs;
 
 	// Victoire défaite
-	public Image noWinner;
-	public Image ghostWinner;
-	public Image hunterWinner;
+	public Material winnerMat;
+	public Image winnerImg;
 	public Image htcImg;
 	public Text htcText;
 	public Material htcTextColor;
@@ -41,8 +40,10 @@ public class GameController : MonoBehaviour {
 		Screen.fullScreen = true;
 		Screen.SetResolution(1920, 1080, true);
 		htcText.text = "";
+		winnerImg.transform.GetChild(0).GetComponent<Text>().text = "";
 		htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
 		AudioListener.volume = 1f;
+		winnerMat.color = new Color(0, 0, 0, 0);
 	}
 
 	void Update () {
@@ -90,7 +91,7 @@ public class GameController : MonoBehaviour {
 				cogAnim[i].enabled = false;
 			}
 			smoke.SetActive(false);
-			noWinner.color = Color.Lerp(new Color(0, 0, 0 , 0), Color.black, colorTimer);
+			winnerMat.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
@@ -98,7 +99,8 @@ public class GameController : MonoBehaviour {
 			}
 			else
 			{
-				noWinner.transform.GetChild(0).gameObject.SetActive(true);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.5f, 0.5f, 0.5f);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().text = "The night has ended... \n The hunter is gone, \n but will return the next night";
 				end = true;
 				htcText.text = "The night has ended... \n You will have to \n come back next night";
 				htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
@@ -114,7 +116,7 @@ public class GameController : MonoBehaviour {
 				cogAnim[i].enabled = false;
 			}
 			smoke.SetActive(false);
-			ghostWinner.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
+			winnerMat.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
@@ -122,7 +124,8 @@ public class GameController : MonoBehaviour {
 			}
 			else
 			{
-				ghostWinner.transform.GetChild(0).gameObject.SetActive(true);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.1f, 0.3f, 0.1f);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().text = "The night has ended... \n The hunter has gone crazy \n and will never come back";
 				end = true;
 				htcText.text = "The night has ended... \n You have lost your mind, \n and will never come back ...";
 				htcTextColor.color = new Color(0.8f, 0.2f, 0.2f);
@@ -138,7 +141,7 @@ public class GameController : MonoBehaviour {
 				cogAnim[i].enabled = false;
 			}
 			smoke.SetActive(false);
-			hunterWinner.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
+			winnerMat.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorTimer);
 			if (colorTimer < 2)
 			{
@@ -146,7 +149,8 @@ public class GameController : MonoBehaviour {
 			}
 			else
 			{
-				hunterWinner.transform.GetChild(0).gameObject.SetActive(true);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.6f, 0f, 0f);
+				winnerImg.transform.GetChild(0).GetComponent<Text>().text = "The night has ended... \n You have been sent back \n to the afterlife";
 				end = true;
 				htcText.text = "The night has ended... \n You have allowed \n your friend to find peace";
 				htcTextColor.color = new Color(0.2f, 0.8f, 0.2f);
