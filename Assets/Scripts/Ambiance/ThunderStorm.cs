@@ -58,13 +58,13 @@ public class ThunderStorm : MonoBehaviour {
 			}
 
 			// Audio
-			if (timer >= 2f && timer <= 2.1f && !thunder.isPlaying)
+			if (timer >= 1.7f && timer <= 1.8f && !thunder.isPlaying)
 			{
 				thunder.clip = thunderSound[Random.Range(0, thunderSound.Length)];
 				thunder.Play();
 			}
 
-			if (timer >= Random.Range(timerThunder, timerThunder + 5f))
+			if (timer >= Random.Range(timerThunder + 5f, timerThunder + 12f))
 			{
 				timer = 0;
 			}

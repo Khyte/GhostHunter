@@ -515,21 +515,21 @@ namespace VRTK
             }
         }
 
-        protected virtual void DoActivationButtonPressed(object sender, ControllerInteractionEventArgs e)
-        {
-			// Ajout
-			if (!magic.magicIsCasted)
-			{
-				OnActivationButtonPressed(controller.SetControllerEvent(ref activationButtonPressed, true));
-				if (EnabledPointerRenderer())
-				{
-					controllerReference = e.controllerReference;
-					Toggle(true);
-				}
-			}        
-        }
+		 protected virtual void DoActivationButtonPressed(object sender, ControllerInteractionEventArgs e)
+		 {
+			 // Ajout
+			 if (!magic.magicIsCasted)
+			 {
+				 OnActivationButtonPressed(controller.SetControllerEvent(ref activationButtonPressed, true));
+				 if (EnabledPointerRenderer())
+				 {
+					 controllerReference = e.controllerReference;
+					 Toggle(true);
+				 }
+			 }        
+		 }
 
-        protected virtual void DoActivationButtonReleased(object sender, ControllerInteractionEventArgs e)
+		protected virtual void DoActivationButtonReleased(object sender, ControllerInteractionEventArgs e)
         {
             if (EnabledPointerRenderer())
             {

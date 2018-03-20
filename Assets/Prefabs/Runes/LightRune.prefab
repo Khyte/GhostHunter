@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4595411171197386}
   - component: {fileID: 198010492465418776}
   - component: {fileID: 199540455958629828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightRune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4323855096785118}
   - component: {fileID: 108328913364366728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4168214513962722}
   - component: {fileID: 198226892441041822}
   - component: {fileID: 199716972396348544}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LightDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}

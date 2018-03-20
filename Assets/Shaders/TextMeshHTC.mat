@@ -7,12 +7,12 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TextMeshHTC
-  m_Shader: {fileID: 4800000, guid: ffa419802d3f44e41858d003faaca2ff, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8a927787de444e640aaeb214701e2db8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:

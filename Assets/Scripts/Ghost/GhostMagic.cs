@@ -103,6 +103,12 @@ public class GhostMagic : MonoBehaviour {
 	{
 		if (ghost.possession != null)
 		{
+			ghost.possession.GetComponent<PossessionTrigger>().planeObject.SetActive(false);
+			// Si son
+			if (ghost.possession.GetComponent<AudioSource>())
+			{
+				ghost.possession.GetComponent<AudioSource>().Play();
+			}
 			// Si animator
 			if (ghost.possession.GetComponent<Animator>())
 			{

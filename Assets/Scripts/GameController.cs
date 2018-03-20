@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
 	public GameObject pointer2;
 	public Animator[] cogAnim;
 	public GameObject smoke;
+	public AudioSource gongsPlay;
+	public AudioClip[] gongs;
 
 	// Victoire défaite
 	public Image noWinner;
@@ -54,6 +56,8 @@ public class GameController : MonoBehaviour {
 
 		if (timer >= 10f && !startGame)
 		{
+			gongsPlay.clip = gongs[0];
+			gongsPlay.Play();
 			startGame = true;
 			for (int i = 0 ; i < cogAnim.Length ; i++)
 			{
@@ -67,6 +71,13 @@ public class GameController : MonoBehaviour {
 			globalTimer += Time.deltaTime;
 			pointer1.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);
 			pointer2.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);
+		}
+
+		// 1 min left
+		if (globalTimer >= 240f && globalTimer < 241f && !gongsPlay.isPlaying)
+		{
+			gongsPlay.clip = gongs[1];
+			gongsPlay.Play();
 		}
 
 		// Fin
@@ -89,7 +100,7 @@ public class GameController : MonoBehaviour {
 			{
 				noWinner.transform.GetChild(0).gameObject.SetActive(true);
 				end = true;
-				htcText.text = "The night has ended... \n You will have to come back next night";
+				htcText.text = "The night has ended... \n You will have to \n come back next night";
 				htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
 			}
 		}

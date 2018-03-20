@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PossessionTrigger : MonoBehaviour {
 
+	public GameObject planeObject;
+
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Ghost")

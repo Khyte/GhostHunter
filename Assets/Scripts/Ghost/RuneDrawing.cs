@@ -124,7 +124,6 @@ public class RuneDrawing : MonoBehaviour {
 					}
 					waypointHit = 1;
 					animTuto[randomRune].gameObject.SetActive(true);
-					Debug.Log("ERREUR");
 				}
 				// Bon dessin
 				else
