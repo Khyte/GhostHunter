@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: 85774200c5d7b7547bd459bac588a6c3
+timeCreated: 1521576718
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: "Chemin\xE9e"
+    100002: "Chemin\xE9e 1"
+    100004: "Chemin\xE9e 2"
+    100006: "Chemin\xE9e 3"
+    100008: "Chemin\xE9e 4"
+    100010: corniche
+    100012: Double porte droite
+    100014: double porte droite
+    100016: "double porte entr\xE9e droite"
+    100018: "double porte entr\xE9e gauche"
+    100020: Double porte gauche
+    100022: double porte gauche
+    100024: double porte salon droite
+    100026: double porte salon gauche
+    100028: E1
+    100030: E1_Balustrade
+    100032: E1_Hall
+    100034: "fen\xEAtre"
+    100036: "fen\xEAtre 1"
+    100038: "fen\xEAtre 2"
+    100040: "fen\xEAtre 3"
+    100042: "fen\xEAtre 4"
+    100044: "fen\xEAtre 5"
+    100046: Grande corniche
+    100048: Grande corniche droite
+    100050: Grande corniche gauche
+    100052: Grande corniche salon
+    100054: Ground
+    100056: //RootNode
+    100058: Panneaux
+    100060: Petite corniche
+    100062: Petite corniche 1
+    100064: Petite corniche 2
+    100066: Petite corniche droite
+    100068: Petite corniche gauche
+    100070: porte
+    100072: porte droite droite
+    100074: porte droite gauche
+    100076: porte gauche droite
+    100078: porte gauche gauche
+    100080: RC
+    100082: RC_Bureau
+    100084: RC_Cabinet
+    100086: RC_Cuisine
+    100088: RC_Hall
+    100090: RC_SalleArts
+    100092: RC_SalleBillard
+    100094: "RC_Salle\xE0Manger"
+    100096: RC_Salon
+    100098: RC_Tour
+    100100: Shell
+    100102: Simple porte
+    100104: Simple porte 1
+    100106: Simple porte 2
+    100108: Simple porte droite
+    100110: Simple porte gauche
+    100112: "Verri\xE8re exterieure"
+    100114: "Verri\xE8re interieure"
+    400000: "Chemin\xE9e"
+    400002: "Chemin\xE9e 1"
+    400004: "Chemin\xE9e 2"
+    400006: "Chemin\xE9e 3"
+    400008: "Chemin\xE9e 4"
+    400010: corniche
+    400012: Double porte droite
+    400014: double porte droite
+    400016: "double porte entr\xE9e droite"
+    400018: "double porte entr\xE9e gauche"
+    400020: Double porte gauche
+    400022: double porte gauche
+    400024: double porte salon droite
+    400026: double porte salon gauche
+    400028: E1
+    400030: E1_Balustrade
+    400032: E1_Hall
+    400034: "fen\xEAtre"
+    400036: "fen\xEAtre 1"
+    400038: "fen\xEAtre 2"
+    400040: "fen\xEAtre 3"
+    400042: "fen\xEAtre 4"
+    400044: "fen\xEAtre 5"
+    400046: Grande corniche
+    400048: Grande corniche droite
+    400050: Grande corniche gauche
+    400052: Grande corniche salon
+    400054: Ground
+    400056: //RootNode
+    400058: Panneaux
+    400060: Petite corniche
+    400062: Petite corniche 1
+    400064: Petite corniche 2
+    400066: Petite corniche droite
+    400068: Petite corniche gauche
+    400070: porte
+    400072: porte droite droite
+    400074: porte droite gauche
+    400076: porte gauche droite
+    400078: porte gauche gauche
+    400080: RC
+    400082: RC_Bureau
+    400084: RC_Cabinet
+    400086: RC_Cuisine
+    400088: RC_Hall
+    400090: RC_SalleArts
+    400092: RC_SalleBillard
+    400094: "RC_Salle\xE0Manger"
+    400096: RC_Salon
+    400098: RC_Tour
+    400100: Shell
+    400102: Simple porte
+    400104: Simple porte 1
+    400106: Simple porte 2
+    400108: Simple porte droite
+    400110: Simple porte gauche
+    400112: "Verri\xE8re exterieure"
+    400114: "Verri\xE8re interieure"
+    2100000: 01 - Default
+    2300000: "Chemin\xE9e"
+    2300002: "Chemin\xE9e 1"
+    2300004: "Chemin\xE9e 2"
+    2300006: "Chemin\xE9e 3"
+    2300008: "Chemin\xE9e 4"
+    2300010: corniche
+    2300012: Double porte droite
+    2300014: double porte droite
+    2300016: "double porte entr\xE9e droite"
+    2300018: "double porte entr\xE9e gauche"
+    2300020: Double porte gauche
+    2300022: double porte gauche
+    2300024: double porte salon droite
+    2300026: double porte salon gauche
+    2300028: E1_Balustrade
+    2300030: E1_Hall
+    2300032: "fen\xEAtre"
+    2300034: "fen\xEAtre 1"
+    2300036: "fen\xEAtre 2"
+    2300038: "fen\xEAtre 3"
+    2300040: "fen\xEAtre 4"
+    2300042: "fen\xEAtre 5"
+    2300044: Grande corniche
+    2300046: Grande corniche droite
+    2300048: Grande corniche gauche
+    2300050: Grande corniche salon
+    2300052: Ground
+    2300054: Panneaux
+    2300056: Petite corniche
+    2300058: Petite corniche 1
+    2300060: Petite corniche 2
+    2300062: Petite corniche droite
+    2300064: Petite corniche gauche
+    2300066: porte
+    2300068: porte droite droite
+    2300070: porte droite gauche
+    2300072: porte gauche droite
+    2300074: porte gauche gauche
+    2300076: RC_Bureau
+    2300078: RC_Cabinet
+    2300080: RC_Cuisine
+    2300082: RC_Hall
+    2300084: RC_SalleArts
+    2300086: RC_SalleBillard
+    2300088: "RC_Salle\xE0Manger"
+    2300090: RC_Salon
+    2300092: RC_Tour
+    2300094: Shell
+    2300096: Simple porte
+    2300098: Simple porte 1
+    2300100: Simple porte 2
+    2300102: Simple porte droite
+    2300104: Simple porte gauche
+    2300106: "Verri\xE8re exterieure"
+    2300108: "Verri\xE8re interieure"
+    3300000: "Chemin\xE9e"
+    3300002: "Chemin\xE9e 1"
+    3300004: "Chemin\xE9e 2"
+    3300006: "Chemin\xE9e 3"
+    3300008: "Chemin\xE9e 4"
+    3300010: corniche
+    3300012: Double porte droite
+    3300014: double porte droite
+    3300016: "double porte entr\xE9e droite"
+    3300018: "double porte entr\xE9e gauche"
+    3300020: Double porte gauche
+    3300022: double porte gauche
+    3300024: double porte salon droite
+    3300026: double porte salon gauche
+    3300028: E1_Balustrade
+    3300030: E1_Hall
+    3300032: "fen\xEAtre"
+    3300034: "fen\xEAtre 1"
+    3300036: "fen\xEAtre 2"
+    3300038: "fen\xEAtre 3"
+    3300040: "fen\xEAtre 4"
+    3300042: "fen\xEAtre 5"
+    3300044: Grande corniche
+    3300046: Grande corniche droite
+    3300048: Grande corniche gauche
+    3300050: Grande corniche salon
+    3300052: Ground
+    3300054: Panneaux
+    3300056: Petite corniche
+    3300058: Petite corniche 1
+    3300060: Petite corniche 2
+    3300062: Petite corniche droite
+    3300064: Petite corniche gauche
+    3300066: porte
+    3300068: porte droite droite
+    3300070: porte droite gauche
+    3300072: porte gauche droite
+    3300074: porte gauche gauche
+    3300076: RC_Bureau
+    3300078: RC_Cabinet
+    3300080: RC_Cuisine
+    3300082: RC_Hall
+    3300084: RC_SalleArts
+    3300086: RC_SalleBillard
+    3300088: "RC_Salle\xE0Manger"
+    3300090: RC_Salon
+    3300092: RC_Tour
+    3300094: Shell
+    3300096: Simple porte
+    3300098: Simple porte 1
+    3300100: Simple porte 2
+    3300102: Simple porte droite
+    3300104: Simple porte gauche
+    3300106: "Verri\xE8re exterieure"
+    3300108: "Verri\xE8re interieure"
+    4300000: RC_Bureau
+    4300002: "fen\xEAtre"
+    4300004: corniche
+    4300006: porte
+    4300008: "Chemin\xE9e"
+    4300010: RC_Cabinet
+    4300012: "Chemin\xE9e"
+    4300014: RC_Cuisine
+    4300016: "fen\xEAtre"
+    4300018: Petite corniche
+    4300020: Simple porte
+    4300022: "RC_Salle\xE0Manger"
+    4300024: "fen\xEAtre"
+    4300026: Petite corniche
+    4300028: Simple porte
+    4300030: "Chemin\xE9e"
+    4300032: RC_SalleArts
+    4300034: "fen\xEAtre"
+    4300036: "fen\xEAtre"
+    4300038: RC_SalleBillard
+    4300040: "fen\xEAtre"
+    4300042: Petite corniche
+    4300044: Simple porte
+    4300046: "Chemin\xE9e"
+    4300048: RC_Salon
+    4300050: Panneaux
+    4300052: porte gauche gauche
+    4300054: porte droite gauche
+    4300056: porte gauche droite
+    4300058: porte droite droite
+    4300060: Grande corniche droite
+    4300062: Grande corniche gauche
+    4300064: "Chemin\xE9e"
+    4300066: RC_Hall
+    4300068: Simple porte droite
+    4300070: Petite corniche droite
+    4300072: Petite corniche gauche
+    4300074: Simple porte gauche
+    4300076: "double porte entr\xE9e droite"
+    4300078: "double porte entr\xE9e gauche"
+    4300080: double porte salon droite
+    4300082: double porte salon gauche
+    4300084: Grande corniche salon
+    4300086: RC_Tour
+    4300088: Ground
+    4300090: E1_Hall
+    4300092: double porte droite
+    4300094: double porte gauche
+    4300096: Grande corniche
+    4300098: E1_Balustrade
+    4300100: "Verri\xE8re exterieure"
+    4300102: "Verri\xE8re interieure"
+    4300104: Double porte gauche
+    4300106: Double porte droite
+    4300108: Shell
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

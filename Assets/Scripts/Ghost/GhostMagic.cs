@@ -8,6 +8,8 @@ public class GhostMagic : MonoBehaviour {
 	public GhostSpells ghostSpell;
 	public RuneDrawing runeDraw;
 
+	public GameController gameC;
+
 	// Cooldowns
 	public Image[] imagesCD;
 	public float[] timerCD;
@@ -26,25 +28,28 @@ public class GhostMagic : MonoBehaviour {
 		{
 			runeDraw.runeDone = false;
 
-			// Possession
-			if (ghostSpell.spellNbr == 1)
+			if (gameC.startGame)
 			{
-				Possession();
-			}
-			// Lumière
-			else if (ghostSpell.spellNbr == 2)
-			{
-				LightDown();
-			}
-			// Teleport
-			else if (ghostSpell.spellNbr == 3)
-			{
-				Teleport();
-			}
-			// Taunt
-			else if (ghostSpell.spellNbr == 4)
-			{
-				Taunt();
+				// Possession
+				if (ghostSpell.spellNbr == 1)
+				{
+					Possession();
+				}
+				// Lumière
+				else if (ghostSpell.spellNbr == 2)
+				{
+					LightDown();
+				}
+				// Teleport
+				else if (ghostSpell.spellNbr == 3)
+				{
+					Teleport();
+				}
+				// Taunt
+				else if (ghostSpell.spellNbr == 4)
+				{
+					Taunt();
+				}
 			}
 		}
 

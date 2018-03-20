@@ -33,7 +33,7 @@ public class CalibrationHeartRate : MonoBehaviour
 	void Start()
 	{
 		InvokeRepeating("GetCalibration", 0, 1f);
-		Invoke("GetRes", 10f);
+		Invoke("GetRes", 60f);
 	}
 
 	void GetCalibration()
@@ -54,7 +54,7 @@ public class CalibrationHeartRate : MonoBehaviour
 	void GetRes()
 	{
 		stopCalibration = true;
-		calibHeartRate = resHeartRate / (10 - noValue);
+		calibHeartRate = resHeartRate / (60 - noValue);
 		Debug.Log("Valeur calibrée : " + calibHeartRate);
 		textCalib.text = calibHeartRate.ToString();
 	}
