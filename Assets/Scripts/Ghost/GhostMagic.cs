@@ -108,7 +108,7 @@ public class GhostMagic : MonoBehaviour {
 		if (timerCD[3] <= 20)
 		{
 			timerCD[3] += Time.deltaTime;
-			float value = timerCD[3] / 20;
+			float value = timerCD[3] / 10;
 			imagesCD[3].fillAmount = value;
 		}
 	}

@@ -84,7 +84,6 @@ public class GhostSpells : MonoBehaviour {
 				runeD.randomRune = Random.Range(0, runeD.rune.Length);
 				if (lastRune == runeD.randomRune)
 				{
-					Debug.Log("TOTO");
 					LightDown();
 					return;
 				}
@@ -101,7 +100,6 @@ public class GhostSpells : MonoBehaviour {
 				runeD.randomRune = Random.Range(0, runeD.rune.Length);
 				if (lastRune == runeD.randomRune)
 				{
-					Debug.Log("TOTO");
 					LightDown();
 					return;
 				}
