@@ -123,7 +123,7 @@ Material:
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _DiffuseScatteringCol: {r: 0, g: 0, b: 0, a: 0}
     - _DiffuseScatteringCol2: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0, g: 0.31267202, b: 1.5633601, a: 1.5633601}
+    - _EmissionColor: {r: 0, g: 0.1556242, b: 0.77812093, a: 0.77812093}
     - _SnowAccumulation: {r: 0, g: 1, b: 0, a: 0}
     - _SnowDetailTiling: {r: 4, g: 4, b: 0, a: 0}
     - _SnowMaskTiling: {r: 0.3, g: 0.3, b: 0, a: 0}

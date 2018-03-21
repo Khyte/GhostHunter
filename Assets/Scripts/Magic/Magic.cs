@@ -194,7 +194,7 @@ public class Magic : MonoBehaviour {
 		switch(lastMagicValue)
 		{
 			case 1:
-				coolDown = 5f;
+				coolDown = 2f;
 				break;
 			case 2:
 				coolDown = 11f;

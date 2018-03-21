@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
 	public NavMeshAgent ghostNav;
 	public Material skybox1;
 	public Material skybox2;
+	public GameObject tutoDone;
 
 	public Ghost ghost;
 	public HeartRate hRate;
@@ -64,7 +65,7 @@ public class GameController : MonoBehaviour {
 		// 55 à 60
 		//
 		//
-		if (timer > 5f && timer < 10f)
+		if (timer > 55f && timer < 60f)
 		{
 			winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.5f, 0.5f, 0.5f);
 			winnerImg.transform.GetChild(0).GetComponent<Text>().text = "La nuit tombe...";
@@ -84,8 +85,9 @@ public class GameController : MonoBehaviour {
 		//
 		//
 		// Fin tuto
-		if (timer >= 10f && !startGame)
+		if (timer >= 60f && !startGame)
 		{
+			tutoDone.SetActive(true);
 			colorDuration = 0;
 			RenderSettings.skybox = skybox2;
 			tutoObject.SetActive(false);
@@ -110,7 +112,7 @@ public class GameController : MonoBehaviour {
 		// >= 60
 		//
 		//
-		if (timer >= 10f && !preEnd1 && !preEnd2 && !preEnd3)
+		if (timer >= 60f && !preEnd1 && !preEnd2 && !preEnd3)
 		{
 			colorDuration += Time.deltaTime / 3f;
 			winnerMat.color = Color.Lerp(Color.black, new Color(0, 0, 0, 0), colorDuration);

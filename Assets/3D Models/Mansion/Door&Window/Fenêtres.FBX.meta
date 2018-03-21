@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: fe82eceee1b76804583c353f9c0d0d42
+timeCreated: 1521628758
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: "fen\xEAtre"
+    100002: "fen\xEAtre001"
+    100004: "fen\xEAtre002"
+    100006: "fen\xEAtre003"
+    100008: "fen\xEAtre004"
+    100010: "fen\xEAtre005"
+    100012: //RootNode
+    100014: Vitre
+    100016: Vitre001
+    100018: Vitre002
+    100020: Vitre003
+    100022: Vitre004
+    100024: Vitre005
+    400000: "fen\xEAtre"
+    400002: "fen\xEAtre001"
+    400004: "fen\xEAtre002"
+    400006: "fen\xEAtre003"
+    400008: "fen\xEAtre004"
+    400010: "fen\xEAtre005"
+    400012: //RootNode
+    400014: Vitre
+    400016: Vitre001
+    400018: Vitre002
+    400020: Vitre003
+    400022: Vitre004
+    400024: Vitre005
+    2100000: 01 - Default
+    2300000: "fen\xEAtre"
+    2300002: "fen\xEAtre001"
+    2300004: "fen\xEAtre002"
+    2300006: "fen\xEAtre003"
+    2300008: "fen\xEAtre004"
+    2300010: "fen\xEAtre005"
+    2300012: Vitre
+    2300014: Vitre001
+    2300016: Vitre002
+    2300018: Vitre003
+    2300020: Vitre004
+    2300022: Vitre005
+    3300000: "fen\xEAtre"
+    3300002: "fen\xEAtre001"
+    3300004: "fen\xEAtre002"
+    3300006: "fen\xEAtre003"
+    3300008: "fen\xEAtre004"
+    3300010: "fen\xEAtre005"
+    3300012: Vitre
+    3300014: Vitre001
+    3300016: Vitre002
+    3300018: Vitre003
+    3300020: Vitre004
+    3300022: Vitre005
+    4300000: "fen\xEAtre004"
+    4300002: "fen\xEAtre005"
+    4300004: "fen\xEAtre002"
+    4300006: "fen\xEAtre001"
+    4300008: "fen\xEAtre"
+    4300010: "fen\xEAtre003"
+    4300012: Vitre005
+    4300014: Vitre004
+    4300016: Vitre003
+    4300018: Vitre002
+    4300020: Vitre001
+    4300022: Vitre
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
