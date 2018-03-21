@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f89ca8eb8a9a5b74bb4de0cc0b3ef608, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7600118b595f9284aa43b73f3dd91ca5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CombinedMap:
@@ -43,11 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8e729c66c4620ef428bece9d1653fea0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 30490bb0af153604992722b8cc1b452b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a346a1b73609f1a40bab4a819caf8498, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9dfdf9520aca4494696f65d9ad3ffc01, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap2:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: e6008cac1d23e1d4c93ed9f8d7f67a24, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5219804c3ebc6b145b370ab2888bd3b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -120,7 +120,7 @@ Material:
     - _DiffuseScatteringCol: {r: 0, g: 0, b: 0, a: 0}
     - _DiffuseScatteringCol2: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SnowAccumulation: {r: 0, g: 4, b: 0, a: 0}
+    - _SnowAccumulation: {r: 0.6666666, g: 4, b: 0, a: 0}
     - _SnowDetailTiling: {r: 4, g: 4, b: 0, a: 0}
     - _SnowMaskTiling: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _SnowTiling: {r: 2, g: 2, b: 0, a: 0}

@@ -126,6 +126,24 @@ public class Ghost : MonoBehaviour {
 			fireParticles.emissionRate = 15;
 		}
 
+		// Security
+		if (magic.actualRune != null && !lightDmg)
+		{
+			float distanceRune = Vector3.Distance(magic.transform.localPosition, transform.localPosition);
+			if (distanceRune >= 1.5f)
+			{
+				invisible = true;
+				runeDmg = false;
+			}
+		}
+
+		// Visibilité selon la rune posée
+		if (magic.actualRune == null && !lightDmg)
+		{
+			runeDmg = false;
+			invisible = true;
+		}
+
 		// Récupérer la luminosité de la salle
 		if (mansionRoom != null)
 		{
@@ -158,12 +176,6 @@ public class Ghost : MonoBehaviour {
 			{
 				lightDmg = false;
 			}
-		}
-
-		// Visibilité selon la rune posée
-		if (magic.actualRune == null && !lightDmg && !runeDmg)
-		{
-			invisible = true;
 		}
 	}
 

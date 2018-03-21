@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class GhostMagic : MonoBehaviour {
 
 	public GhostSpells ghostSpell;
-	public RuneDrawing runeDraw;
+	public RuneDrawing runeDraw1;
+	public RuneDrawing runeDraw2;
+
+	private RuneDrawing runeDraw;
 
 	public GameController gameC;
 
@@ -24,32 +27,38 @@ public class GhostMagic : MonoBehaviour {
 
 	private void Update()
 	{
+		if (gameC.startGame)
+		{
+			runeDraw = runeDraw2;
+		}
+		else
+		{
+			runeDraw = runeDraw1;
+		}
+
 		if (runeDraw.runeDone)
 		{
 			runeDraw.runeDone = false;
 
-			if (gameC.startGame)
+			// Possession
+			if (ghostSpell.spellNbr == 1)
 			{
-				// Possession
-				if (ghostSpell.spellNbr == 1)
-				{
-					Possession();
-				}
-				// Lumière
-				else if (ghostSpell.spellNbr == 2)
-				{
-					LightDown();
-				}
-				// Teleport
-				else if (ghostSpell.spellNbr == 3)
-				{
-					Teleport();
-				}
-				// Taunt
-				else if (ghostSpell.spellNbr == 4)
-				{
-					Taunt();
-				}
+				Possession();
+			}
+			// Lumière
+			else if (ghostSpell.spellNbr == 2)
+			{
+				LightDown();
+			}
+			// Teleport
+			else if (ghostSpell.spellNbr == 3)
+			{
+				Teleport();
+			}
+			// Taunt
+			else if (ghostSpell.spellNbr == 4)
+			{
+				Taunt();
 			}
 		}
 
@@ -150,7 +159,14 @@ public class GhostMagic : MonoBehaviour {
 
 	private void Teleport()
 	{
-		ghost.transform.localPosition = new Vector3(0, ghost.transform.localPosition.y, 0);
+		if (gameC.startGame)
+		{
+			ghost.transform.localPosition = new Vector3(0, ghost.transform.localPosition.y, 0);
+		}
+		else
+		{
+			ghost.transform.localPosition = new Vector3(-1366, ghost.transform.localPosition.y, 954);
+		}
 		timerCD[2] = 0;
 	}
 

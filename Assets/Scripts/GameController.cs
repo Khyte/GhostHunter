@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour {
 	public Material skybox1;
 	public Material skybox2;
 	public GameObject tutoDone;
+	public GameObject ghostTuto;
+	public GameObject ghostTutoText;
 
 	public Ghost ghost;
 	public HeartRate hRate;
@@ -79,6 +81,16 @@ public class GameController : MonoBehaviour {
 		if (timer < 60f)
 		{
 			ghost.life.fillAmount = 1;
+		}
+
+		// Désaffichage du tuto
+		if (timer > 40f)
+		{
+			ghostTuto.SetActive(false);
+		}
+		if (timer >= 60f)
+		{
+			ghostTutoText.SetActive(false);
 		}
 
 		// >= 60

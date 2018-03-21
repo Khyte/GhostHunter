@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class GhostSpells : MonoBehaviour {
 
-	public RuneDrawing runeD;
+	public GameController gameC;
+	public RuneDrawing runeD1;
+	public RuneDrawing runeD2;
 	public GhostMagic ghostMagic;
 
 	public int spellNbr = 0;
 
+	private RuneDrawing runeD;
 	private int lastSpell = 0;
 	private int lastRune = 99;
 
+
+	private void Update()
+	{
+		if (gameC.startGame)
+		{
+			runeD = runeD2;
+		}
+		else
+		{
+			runeD = runeD1;
+		}
+	}
 
 	public void Possession()
 	{
@@ -69,6 +84,7 @@ public class GhostSpells : MonoBehaviour {
 				runeD.randomRune = Random.Range(0, runeD.rune.Length);
 				if (lastRune == runeD.randomRune)
 				{
+					Debug.Log("TOTO");
 					LightDown();
 					return;
 				}
@@ -85,6 +101,7 @@ public class GhostSpells : MonoBehaviour {
 				runeD.randomRune = Random.Range(0, runeD.rune.Length);
 				if (lastRune == runeD.randomRune)
 				{
+					Debug.Log("TOTO");
 					LightDown();
 					return;
 				}

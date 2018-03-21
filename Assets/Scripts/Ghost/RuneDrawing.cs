@@ -8,6 +8,7 @@ public class RuneDrawing : MonoBehaviour {
 	public List<GameObject> waypoints = new List<GameObject>();
 
 	public GameObject[] animTuto;
+	public GameController gameC;
 
 	public int randomRune = 0;
 	public int waypointHit = 1;
@@ -18,6 +19,8 @@ public class RuneDrawing : MonoBehaviour {
 	public bool drawRune = false;
 
 	public bool runeDone = false;
+
+	private bool gameStarted = false;
 
 
 	void Start () {
@@ -38,6 +41,16 @@ public class RuneDrawing : MonoBehaviour {
 	}
 
 	void Update () {
+		if (gameC.startGame && !gameStarted)
+		{
+			drawRune = false;
+			gameStarted = true;
+			for (int i = 0 ; i < animTuto.Length ; i++)
+			{
+				animTuto[i].SetActive(false);
+			}
+		}
+
 		if (drawRune)
 		{
 			if (Input.GetMouseButtonDown(0))
