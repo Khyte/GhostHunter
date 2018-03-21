@@ -41,12 +41,6 @@ public class Ghost : MonoBehaviour {
 	private float t = 0;
 
 
-	private void Awake()
-	{
-		transform.localPosition = Random.insideUnitSphere * 10f;
-		transform.localPosition = new Vector3(transform.localPosition.x, 0.8f, transform.localPosition.z);
-	}
-
 	private void Start()
 	{
 		ghostAnim = GetComponent<Animation>();

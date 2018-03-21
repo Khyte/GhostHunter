@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
@@ -25,6 +26,11 @@ public class GameController : MonoBehaviour {
 
 	// Tuto
 	public Text tutoText;
+	public GameObject ghostCam;
+	public GameObject tutoObject;
+	public NavMeshAgent ghostNav;
+	public Material skybox1;
+	public Material skybox2;
 
 	public Ghost ghost;
 	public HeartRate hRate;
@@ -33,6 +39,7 @@ public class GameController : MonoBehaviour {
 
 	private float timer = 0;
 	private float colorTimer = 0;
+	private float colorDuration = 0;
 	private bool preEnd1 = false;
 	private bool preEnd2 = false;
 	private bool preEnd3 = false;
@@ -47,65 +54,24 @@ public class GameController : MonoBehaviour {
 		htcTextColor.color = new Color(0.5f, 0.5f, 0.5f);
 		AudioListener.volume = 1f;
 		winnerMat.color = new Color(0, 0, 0, 0);
+		htcImg.color = new Color(0, 0, 0, 0);
+		RenderSettings.skybox = skybox1;
 	}
 
 	void Update () {
 		timer += Time.deltaTime;
 
-		// Tuto
-		if (timer <= 9f)
+		// 55 à 60
+		//
+		//
+		if (timer > 5f && timer < 10f)
 		{
-			tutoText.text = "Prenez vos marques dans le manoir, le temps que votre peur soit calibrée. Le premier gong sonne le début des 5 minutes.";
-		}
-		else if (timer > 9f && timer <= 10f)
-		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
-		}
-		// Tuto 2
-		else if (timer > 10f && timer <= 20f)
-		{
-			tutoText.text = "Le grimoire permet de choisir la magie, et l'orbe permet de lancer le sort.";
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1);
-		}
-		else if (timer > 20f && timer <= 21f)
-		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
-		}
-		// Tuto 3
-		else if (timer > 21f && timer <= 30f)
-		{
-			tutoText.text = "Glissez votre doigt de gauche à droite ou inversement sur le pad tactile de la manette qui tient le grimoire pour changer de sort.";
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1);
-		}
-		else if (timer > 30f && timer <= 31f)
-		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
-		}
-		// Tuto 4
-		else if (timer > 31f && timer <= 40f)
-		{
-			tutoText.text = "Utilisez le bouton à l'arrière (trigger) pour ouvrir le livre et avoir des informations sur les sorts.";
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1);
-		}
-		else if (timer > 40f && timer <= 41f)
-		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
-		}
-		// Tuto 5
-		else if (timer > 41f && timer <= 50f)
-		{
-			tutoText.text = "Cliquez sur le pad tactile de la manette qui tient l'orbe pour préparer le sort, et utilisez le trigger pour le lancer.";
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1);
-		}
-		else if (timer > 50f && timer <= 51f)
-		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
-		}
-		// Tuto 6
-		else if (timer > 51f && timer < 60f)
-		{
-			tutoText.text = "Utilisez les boutons sur les côtés (grip) pour ouvrir les portes. Préparez-vous, ça va commencer...";
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), 1);
+			winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.5f, 0.5f, 0.5f);
+			winnerImg.transform.GetChild(0).GetComponent<Text>().text = "La nuit tombe...";
+			tutoText.text = "La nuit tombe...";
+			colorDuration += Time.deltaTime / 4f;
+			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorDuration);
+			winnerMat.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), colorDuration);
 		}
 
 		// Vie du fantôme bloquée
@@ -114,10 +80,23 @@ public class GameController : MonoBehaviour {
 			ghost.life.fillAmount = 1;
 		}
 
-		if (timer >= 60f && !startGame)
+		// >= 60
+		//
+		//
+		// Fin tuto
+		if (timer >= 10f && !startGame)
 		{
-			tutoText.material.color = Color.Lerp(new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1);
+			colorDuration = 0;
+			RenderSettings.skybox = skybox2;
+			tutoObject.SetActive(false);
+			ghostNav.enabled = false;
+			ghost.transform.localPosition = new Vector3(0, 0.8f, 0);
+			//ghost.transform.localPosition = Random.insideUnitSphere * 10f;
+			//ghost.transform.localPosition = new Vector3(transform.localPosition.x, 0.8f, transform.localPosition.z);
+			ghostNav.enabled = true;
+			ghostCam.transform.localPosition = new Vector3(0, 50, 0.3f);
 			tutoText.text = "";
+			winnerImg.transform.GetChild(0).GetComponent<Text>().text = "";
 			gongsPlay.clip = gongs[0];
 			gongsPlay.Play();
 			startGame = true;
@@ -128,8 +107,14 @@ public class GameController : MonoBehaviour {
 			smoke.SetActive(true);
 		}
 
-		if (timer >= 60f && !preEnd1 && !preEnd2 && !preEnd3)
+		// >= 60
+		//
+		//
+		if (timer >= 10f && !preEnd1 && !preEnd2 && !preEnd3)
 		{
+			colorDuration += Time.deltaTime / 3f;
+			winnerMat.color = Color.Lerp(Color.black, new Color(0, 0, 0, 0), colorDuration);
+			htcImg.color = Color.Lerp(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0), colorDuration);
 			globalTimer += Time.deltaTime;
 			pointer1.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);
 			pointer2.transform.localEulerAngles += new Vector3(0, 0, Time.deltaTime * 1.2f);

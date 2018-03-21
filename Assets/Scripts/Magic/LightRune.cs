@@ -5,12 +5,15 @@ using UnityEngine;
 public class LightRune : MonoBehaviour {
 
 	public LightFlicker[] lights;
+	public GameController gameC;
 
 	public Hunter hunter;
 
 	public List<LightFlicker> lightsRoom = new List<LightFlicker>();
 	private bool activateLight = false;
 	private float timer = 0;
+
+	private bool gameStarted = false;
 
 
 	public void ActivateLights()
@@ -35,6 +38,15 @@ public class LightRune : MonoBehaviour {
 
 	private void Update()
 	{
+		if (gameC.startGame && !gameStarted)
+		{
+			for (int i = 0 ; i < lights.Length ; i++)
+			{
+				lights[i].gameObject.SetActive(true);
+			}
+			gameStarted = true;
+		}
+
 		if (activateLight)
 		{
 			timer += Time.deltaTime;
