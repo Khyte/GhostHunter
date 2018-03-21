@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: 5d3c2825cb7f22249af4ecc61d4bf4be
+timeCreated: 1521621164
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Assiette006
+    100002: Assiette007
+    100004: Assiette008
+    100006: Assiette009
+    100008: Assiette010
+    100010: Assiette011
+    100012: Assiette012
+    100014: Assiette013
+    100016: Assiette014
+    100018: Assiette015
+    100020: Assiette016
+    100022: Assiette017
+    100024: Bouteille de vin
+    100026: Bouteille de vin001
+    100028: Box002
+    100030: CaC
+    100032: CaC001
+    100034: CaC002
+    100036: CaC003
+    100038: CaC004
+    100040: CaC005
+    100042: CaS
+    100044: CaS001
+    100046: CaS002
+    100048: CaS003
+    100050: CaS004
+    100052: CaS005
+    100054: Couteau
+    100056: Couteau001
+    100058: Couteau002
+    100060: Couteau003
+    100062: Couteau004
+    100064: Couteau005
+    100066: CouteauFrom
+    100068: CouteauFrom001
+    100070: CouteauFrom002
+    100072: CouteauFrom003
+    100074: CouteauFrom004
+    100076: CouteauFrom005
+    100078: Fourchette
+    100080: Fourchette001
+    100082: Fourchette002
+    100084: Fourchette003
+    100086: Fourchette004
+    100088: Fourchette005
+    100090: Fourchette006
+    100092: Fourchette007
+    100094: Fourchette008
+    100096: Fourchette009
+    100098: Fourchette010
+    100100: Fourchette011
+    100102: Plane001
+    100104: //RootNode
+    100106: Verre de vin003
+    100108: Verre de vin004
+    100110: Verre de vin005
+    100112: Verre de vin006
+    100114: Verre de vin007
+    100116: Verre de vin008
+    400000: Assiette006
+    400002: Assiette007
+    400004: Assiette008
+    400006: Assiette009
+    400008: Assiette010
+    400010: Assiette011
+    400012: Assiette012
+    400014: Assiette013
+    400016: Assiette014
+    400018: Assiette015
+    400020: Assiette016
+    400022: Assiette017
+    400024: Bouteille de vin
+    400026: Bouteille de vin001
+    400028: Box002
+    400030: CaC
+    400032: CaC001
+    400034: CaC002
+    400036: CaC003
+    400038: CaC004
+    400040: CaC005
+    400042: CaS
+    400044: CaS001
+    400046: CaS002
+    400048: CaS003
+    400050: CaS004
+    400052: CaS005
+    400054: Couteau
+    400056: Couteau001
+    400058: Couteau002
+    400060: Couteau003
+    400062: Couteau004
+    400064: Couteau005
+    400066: CouteauFrom
+    400068: CouteauFrom001
+    400070: CouteauFrom002
+    400072: CouteauFrom003
+    400074: CouteauFrom004
+    400076: CouteauFrom005
+    400078: Fourchette
+    400080: Fourchette001
+    400082: Fourchette002
+    400084: Fourchette003
+    400086: Fourchette004
+    400088: Fourchette005
+    400090: Fourchette006
+    400092: Fourchette007
+    400094: Fourchette008
+    400096: Fourchette009
+    400098: Fourchette010
+    400100: Fourchette011
+    400102: Plane001
+    400104: //RootNode
+    400106: Verre de vin003
+    400108: Verre de vin004
+    400110: Verre de vin005
+    400112: Verre de vin006
+    400114: Verre de vin007
+    400116: Verre de vin008
+    2100000: No Name
+    2300000: Assiette006
+    2300002: Assiette007
+    2300004: Assiette008
+    2300006: Assiette009
+    2300008: Assiette010
+    2300010: Assiette011
+    2300012: Assiette012
+    2300014: Assiette013
+    2300016: Assiette014
+    2300018: Assiette015
+    2300020: Assiette016
+    2300022: Assiette017
+    2300024: Bouteille de vin
+    2300026: Bouteille de vin001
+    2300028: Box002
+    2300030: CaC
+    2300032: CaC001
+    2300034: CaC002
+    2300036: CaC003
+    2300038: CaC004
+    2300040: CaC005
+    2300042: CaS
+    2300044: CaS001
+    2300046: CaS002
+    2300048: CaS003
+    2300050: CaS004
+    2300052: CaS005
+    2300054: Couteau
+    2300056: Couteau001
+    2300058: Couteau002
+    2300060: Couteau003
+    2300062: Couteau004
+    2300064: Couteau005
+    2300066: CouteauFrom
+    2300068: CouteauFrom001
+    2300070: CouteauFrom002
+    2300072: CouteauFrom003
+    2300074: CouteauFrom004
+    2300076: CouteauFrom005
+    2300078: Fourchette
+    2300080: Fourchette001
+    2300082: Fourchette002
+    2300084: Fourchette003
+    2300086: Fourchette004
+    2300088: Fourchette005
+    2300090: Fourchette006
+    2300092: Fourchette007
+    2300094: Fourchette008
+    2300096: Fourchette009
+    2300098: Fourchette010
+    2300100: Fourchette011
+    2300102: Plane001
+    2300104: Verre de vin003
+    2300106: Verre de vin004
+    2300108: Verre de vin005
+    2300110: Verre de vin006
+    2300112: Verre de vin007
+    2300114: Verre de vin008
+    3300000: Assiette006
+    3300002: Assiette007
+    3300004: Assiette008
+    3300006: Assiette009
+    3300008: Assiette010
+    3300010: Assiette011
+    3300012: Assiette012
+    3300014: Assiette013
+    3300016: Assiette014
+    3300018: Assiette015
+    3300020: Assiette016
+    3300022: Assiette017
+    3300024: Bouteille de vin
+    3300026: Bouteille de vin001
+    3300028: Box002
+    3300030: CaC
+    3300032: CaC001
+    3300034: CaC002
+    3300036: CaC003
+    3300038: CaC004
+    3300040: CaC005
+    3300042: CaS
+    3300044: CaS001
+    3300046: CaS002
+    3300048: CaS003
+    3300050: CaS004
+    3300052: CaS005
+    3300054: Couteau
+    3300056: Couteau001
+    3300058: Couteau002
+    3300060: Couteau003
+    3300062: Couteau004
+    3300064: Couteau005
+    3300066: CouteauFrom
+    3300068: CouteauFrom001
+    3300070: CouteauFrom002
+    3300072: CouteauFrom003
+    3300074: CouteauFrom004
+    3300076: CouteauFrom005
+    3300078: Fourchette
+    3300080: Fourchette001
+    3300082: Fourchette002
+    3300084: Fourchette003
+    3300086: Fourchette004
+    3300088: Fourchette005
+    3300090: Fourchette006
+    3300092: Fourchette007
+    3300094: Fourchette008
+    3300096: Fourchette009
+    3300098: Fourchette010
+    3300100: Fourchette011
+    3300102: Plane001
+    3300104: Verre de vin003
+    3300106: Verre de vin004
+    3300108: Verre de vin005
+    3300110: Verre de vin006
+    3300112: Verre de vin007
+    3300114: Verre de vin008
+    4300000: Bouteille de vin
+    4300002: Box002
+    4300004: Assiette006
+    4300006: Assiette007
+    4300008: Verre de vin003
+    4300010: Plane001
+    4300012: Fourchette
+    4300014: Couteau
+    4300016: CaS
+    4300018: CaC
+    4300020: CouteauFrom
+    4300022: Fourchette001
+    4300024: Assiette008
+    4300026: Assiette009
+    4300028: CaC001
+    4300030: CaS001
+    4300032: Couteau001
+    4300034: CouteauFrom001
+    4300036: Fourchette002
+    4300038: Fourchette003
+    4300040: Verre de vin004
+    4300042: Assiette010
+    4300044: Assiette011
+    4300046: CaC002
+    4300048: CaS002
+    4300050: Couteau002
+    4300052: CouteauFrom002
+    4300054: Fourchette004
+    4300056: Fourchette005
+    4300058: Verre de vin005
+    4300060: Assiette012
+    4300062: Assiette013
+    4300064: CaC003
+    4300066: CaS003
+    4300068: Couteau003
+    4300070: CouteauFrom003
+    4300072: Fourchette006
+    4300074: Fourchette007
+    4300076: Verre de vin006
+    4300078: Assiette014
+    4300080: Assiette015
+    4300082: CaC004
+    4300084: CaS004
+    4300086: Couteau004
+    4300088: CouteauFrom004
+    4300090: Fourchette008
+    4300092: Fourchette009
+    4300094: Verre de vin007
+    4300096: Assiette016
+    4300098: Assiette017
+    4300100: CaC005
+    4300102: CaS005
+    4300104: Couteau005
+    4300106: CouteauFrom005
+    4300108: Fourchette010
+    4300110: Fourchette011
+    4300112: Verre de vin008
+    4300114: Bouteille de vin001
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
