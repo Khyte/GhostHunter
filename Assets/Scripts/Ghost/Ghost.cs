@@ -129,8 +129,8 @@ public class Ghost : MonoBehaviour {
 		// Security
 		if (magic.actualRune != null && !lightDmg)
 		{
-			float distanceRune = Vector3.Distance(magic.transform.localPosition, transform.localPosition);
-			if (distanceRune >= 1.5f)
+			float distanceRune = Vector3.Distance(magic.actualRune.transform.localPosition, transform.localPosition);
+			if (distanceRune >= 1.7f)
 			{
 				invisible = true;
 				runeDmg = false;
@@ -156,7 +156,7 @@ public class Ghost : MonoBehaviour {
 						ghostAnim.Play("IdleToDmg");
 					}
 					ghostAnim.PlayQueued("Dmg");
-					life.fillAmount -= 0.02f * Time.deltaTime;
+					life.fillAmount -= 0.04f * Time.deltaTime;
 					invisible = false;
 					lightDmg = true;
 				}
@@ -211,7 +211,7 @@ public class Ghost : MonoBehaviour {
 			ghostAnim.PlayQueued("Dmg");
 			if (life.fillAmount > 0)
 			{
-				life.fillAmount -= 0.08f * Time.deltaTime;
+				life.fillAmount -= 0.12f * Time.deltaTime;
 			}
 		}
 	}

@@ -42,6 +42,9 @@ public class HeartRate : MonoBehaviour {
 	private float value;
 	private float baseValue;
 
+	private bool startSoundFear = true;
+	private bool startSoundSpatial = true;
+
 
 	private void Awake()
 	{
@@ -92,7 +95,7 @@ public class HeartRate : MonoBehaviour {
 			// Life delta >= 10
 			if ((value - baseValue) * delta >= 10)
 			{
-				lifeSlider.value -= 0.000006f * ((value - baseValue) * delta) * Mathf.Exp(3);
+				lifeSlider.value -= 0.000009f * ((value - baseValue) * delta) * Mathf.Exp(3);
 			}
 
 			// Thunder delta >= 20
@@ -111,10 +114,12 @@ public class HeartRate : MonoBehaviour {
 			if ((value - baseValue) * delta >= 30)
 			{
 				randomAmbiance.volume = ((value - baseValue) * delta * 0.01f) - 0.25f;
-				if (!randomAmbiance.isPlaying)
+				if (!randomAmbiance.isPlaying && startSoundFear)
 				{
+					startSoundFear = false;
 					randomAmbiance.clip = randomFear[Random.Range(0, randomFear.Length)];
 					randomAmbiance.Play();
+					StartCoroutine(StartRandFear());
 				}
 			}
 			else
@@ -126,12 +131,14 @@ public class HeartRate : MonoBehaviour {
 			if ((value - baseValue) * delta >= 60)
 			{
 				randomSpatial.volume = ((value - baseValue) * delta * 0.01f) - 0.35f;
-				if (!randomSpatial.isPlaying)
+				if (!randomSpatial.isPlaying && startSoundSpatial)
 				{
+					startSoundSpatial = false;
 					randomSpatial.clip = randomSpatialFear[Random.Range(0, randomSpatialFear.Length)];
 					randomSpatial.Play();
 					randomSpatial.transform.localPosition = (new Vector3(0, 5, 0)) + Random.insideUnitSphere * 15;
 					randomSpatial.transform.localPosition = new Vector3(randomSpatial.transform.localPosition.x, 5, randomSpatial.transform.localPosition.z);
+					StartCoroutine(StartRandSpatial());
 				}
 			}
 			else
@@ -156,6 +163,7 @@ public class HeartRate : MonoBehaviour {
 					lifeMat[i].color = new Color(0, 0, 0, 1);
 				}
 			}
+			lifeMat[0].SetColor("_EmissionColor", lifeMat[0].color);
 
 			// Sounds
 			ambiance.volume = (value - baseValue) * 0.01f * delta;
@@ -191,6 +199,18 @@ public class HeartRate : MonoBehaviour {
 		yield return new WaitForSeconds(0.7f);
 		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.8f, 0.3f, 0.01f);
 		VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference2, 0.8f, 0.3f, 0.01f);
+	}
+
+	IEnumerator StartRandFear()
+	{
+		yield return new WaitForSeconds(Random.Range(randomAmbiance.clip.length + 10f, randomFear.Length + 18f));
+		startSoundFear = true;
+	}
+
+	IEnumerator StartRandSpatial()
+	{
+		yield return new WaitForSeconds(Random.Range(randomSpatial.clip.length + 10f, randomSpatialFear.Length + 18f));
+		startSoundSpatial = true;
 	}
 
 }

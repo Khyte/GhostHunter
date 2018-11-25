@@ -197,13 +197,13 @@ public class Magic : MonoBehaviour {
 				coolDown = 2f;
 				break;
 			case 2:
-				coolDown = 11f;
+				coolDown = 5f;
 				break;
 			case 3:
-				coolDown = 15f;
+				coolDown = 5f;
 				break;
 			case 4:
-				coolDown = 5f;
+				coolDown = 3f;
 				break;
 		}
 
@@ -227,9 +227,9 @@ public class Magic : MonoBehaviour {
 			orb.orbColor = Color.Lerp(lastColor, colors[lastMagicValue - 1], colorTimer);
 			if (colorTimer < 1)
 			{
-				colorTimer += Time.deltaTime / 2f;
+				colorTimer += Time.deltaTime / 1f;
 			}
-			if (timer >= 2f)
+			if (timer >= 1f)
 			{
 				timer = 0;
 				castMagic = true;

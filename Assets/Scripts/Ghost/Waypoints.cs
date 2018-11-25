@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour {
 
+	public GameController gameC;
 	public GameObject ghost;
 	public List<GameObject> waypoints = new List<GameObject>();
 
 	public bool goToDest = false;
+
+	private bool gameStarted = false;
 
 	private LineRenderer line;
 
@@ -19,6 +22,12 @@ public class Waypoints : MonoBehaviour {
 
 	private void Update()
 	{
+		if (gameC.startGame && !gameStarted)
+		{
+			gameStarted = true;
+			goToDest = false;
+		}
+
 		if (Input.GetMouseButtonDown(0))
 		{
 			waypoints.Clear();

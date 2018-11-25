@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
 
 	private void Awake()
 	{
+		QualitySettings.SetQualityLevel(5, true);
 		Screen.fullScreen = true;
 		Screen.SetResolution(1920, 1080, true);
 		htcText.text = "";
@@ -70,8 +71,8 @@ public class GameController : MonoBehaviour {
 		if (timer > 55f && timer < 60f)
 		{
 			winnerImg.transform.GetChild(0).GetComponent<Text>().material.color = new Color(0.5f, 0.5f, 0.5f);
-			winnerImg.transform.GetChild(0).GetComponent<Text>().text = "La nuit tombe...";
-			tutoText.text = "La nuit tombe...";
+			winnerImg.transform.GetChild(0).GetComponent<Text>().text = "The night falls...";
+			tutoText.text = "The night falls...";
 			colorDuration += Time.deltaTime / 4f;
 			htcImg.color = Color.Lerp(new Color(0, 0, 0, 0), Color.black, colorDuration);
 			winnerMat.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), colorDuration);
